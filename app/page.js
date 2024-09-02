@@ -9,6 +9,7 @@ export default function Home() {
 
   const [pecs, setPecs] = useState([]);
   const [selectedPECs, setSelectedPECs] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleClearTopLine = () => {
     setSelectedPECs([]);
@@ -19,8 +20,8 @@ export default function Home() {
       .then((response) => response.json())
       .then((data) => setPecs(data))
       .catch((error) => console.error('Error fetching PECs:', error));
+      console.log(pecs);
   }, []);
-  console.log(pecs);
   
 
   const handleAddToTopLine = (pec) => {
@@ -45,7 +46,11 @@ export default function Home() {
       }
     };
     playNextAudio();
-  }
+  };
+
+  const filteredPECs = pecs.filter((pec) =>
+    pec.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-start p-4">
@@ -71,9 +76,28 @@ export default function Home() {
         </button>
       </div>
 
+      {/* Search Bar */}
+      <div className="w-full max-w-3xl mb-4 relative">
+        <input
+          type="text"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="Search PECs..."
+          className="w-full p-2 border border-gray-300 rounded-full shadow-sm pr-10 pl-5"
+        />
+        {searchQuery && (
+          <button
+          onClick={() => setSearchQuery("")}
+          className="absolute right-2 top-2 text-gray-500 pr-5"
+          >
+            X {/* Unicode character for "X" */}
+          </button>
+        )}
+      </div>
+
       {/* PECs Grid */}
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
-        {pecs.map((pec, index) => (
+        {filteredPECs.map((pec, index) => (
           <div 
           key={index} 
           className="bg-white p-2 shadow-md rounded-md border-4 border-orange-500"
