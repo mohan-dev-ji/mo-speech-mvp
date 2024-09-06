@@ -7,11 +7,13 @@ import TopLine from '../components/TopLine';
 import SearchBar from '../components/SearchBar';
 import PecsGrid from '../components/PecsGrid';
 
+
 function Search() {
 
   const [pecs, setPecs] = useState([]);
   const [selectedPECs, setSelectedPECs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  
 
   const handleClearTopLine = () => {
     setSelectedPECs([]);

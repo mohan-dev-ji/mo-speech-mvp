@@ -1,13 +1,13 @@
-"use client"; // This makes the component a Client Component
+"use client"; 
+
 
 import React, { useState, useEffect } from 'react';
-import NavBar from './components/NavBar';
+
 import TopLine from './components/TopLine';
-import SearchBar from './components/SearchBar';
+
 import PecsGrid from './components/PecsGrid';
 
-
-export default function Home() {
+function Home() {
 
   const [pecs, setPecs] = useState([]);
   const [selectedPECs, setSelectedPECs] = useState([]);
@@ -53,36 +53,24 @@ export default function Home() {
   const filteredPECs = pecs.filter((pec) =>
     pec.toLowerCase().includes(searchQuery.toLowerCase())
   );
+    return (
+      <>
+        {/* Main Content */}
+        <div className="ml-64 flex-1 p-8">
+        <TopLine 
+            selectedPECs={selectedPECs}
+            handleClearTopLine={handleClearTopLine}
+            handlePlaySentence={handlePlaySentence}
+          />
+        {/* PECs Grid */}
+        <PecsGrid 
+            handleAddToTopLine={handleAddToTopLine}
+            filteredPECs={filteredPECs}
+        />
+        
+        </div>
+      </>
+    )
+};
 
-  return (
-    <div className="min-h-screen bg-gray-100 flex">
-      <NavBar />
-
-      {/* Main Content */}
-      <div className="ml-64 flex-1 p-8">
-
-      {/* Top Line */}
-      <TopLine 
-        selectedPECs={selectedPECs}
-        handleClearTopLine={handleClearTopLine}
-        handlePlaySentence={handlePlaySentence}
-      />
-
-      {/* Search Bar */}
-      <SearchBar 
-        setSearchQuery={setSearchQuery}
-        searchQuery={searchQuery}
-      />
-
-      {/* PECs Grid */}
-      <PecsGrid 
-        handleAddToTopLine={handleAddToTopLine}
-        filteredPECs={filteredPECs}
-      />
-      
-    </div>
-    </div>
-  );
-}
-
-
+export default Home;
