@@ -16,7 +16,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-gray-300">
         <NavBar />
         {/* <TestRouter /> */}
         <main className="flex-1 p-8 md:ml-32 lg:ml-64 mt-16 md:mt-0">

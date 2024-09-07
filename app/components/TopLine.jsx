@@ -1,7 +1,5 @@
 import React from 'react';
 
-
-
 function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence }) {
 
   const handleAddToLists = async () => {

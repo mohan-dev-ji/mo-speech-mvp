@@ -39,7 +39,8 @@ function SearchBar({ setSearchQuery, searchQuery, speechRecognition }) {
     recognition.start();
   };
   return (
-      <div className="flex mb-4 items-center">
+      <div className="mb-4">
+        <div className='flex items-center'>
       
       <input
         type="text"
@@ -72,7 +73,7 @@ function SearchBar({ setSearchQuery, searchQuery, speechRecognition }) {
           <p className="ml-2 text-gray-500">Listening...</p>
         )}
       </div>
-
+      </div>
       
     </div>
   )

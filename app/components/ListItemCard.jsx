@@ -3,7 +3,7 @@ import React from "react";
 function ListItemCard({ key, list, onPlay, onDelete }) {
     return (
         <div 
-            className="flex justify-between items-center border p-4 rounded-lg mb-2 cursor-pointer hover:bg-gray-100"
+            className="flex justify-between items-center border p-4 rounded-lg mb-2 cursor-pointer hover:bg-gray-100 bg-white"
             onClick={() => onPlay(list.pecs)}
         >
           <div className="flex-1">
