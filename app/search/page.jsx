@@ -61,7 +61,7 @@ function Search() {
     return (
       <>
         {/* Main Content */}
-        <div className="ml-64 flex-1 p-8">
+        <div>
         <TopLine 
             selectedPECs={selectedPECs}
             handleClearTopLine={handleClearTopLine}

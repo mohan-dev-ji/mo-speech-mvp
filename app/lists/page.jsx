@@ -50,35 +50,15 @@ function Lists() {
   };
 
   return (
-    <div className="ml-64 p-8">
+    <div>
       <h1 className="text-2xl font-bold mb-4">Saved Lists</h1>
       {savedLists.map((list) => (
         <ListItemCard 
-        key={list.id}
-        list={list}
-        onPlay={handlePlayList}
-        onDelete={handleDeleteList}
+          key={list.id}
+          list={list}
+          onPlay={handlePlayList}
+          onDelete={handleDeleteList}
         />
-        // <div key={list.id} className="flex items-center mb-4">
-        //   <div className="flex-1">
-        //     {list.pecs.map((pec, index) => (
-        //       <img key={index} src={`/pecs/${pec}`} alt={pec} className="w-12 h-12 inline-block mr-2" />
-        //     ))}
-        //   </div>
-        //   <button
-        //         onClick={() => handlePlayList(list.pecs)}
-        //         className="bg-blue-500 text-white px-4 py-2 mr-2 rounded"
-        //     >
-        //         Play
-        //     </button>
-        //     <button
-        //         onClick={() => handleDeleteList(list.id)}
-        //         className="bg-red-500 text-white px-4 py-2 rounded"
-        //     >
-        //         Delete
-        //     </button>
-        //   </div>
-        
         ))}
         </div>
     );
