@@ -62,11 +62,12 @@ export default function NavBar() {
 
   {/* Dropdown Menu for Small Screens */}
   {isMenuOpen && (
-    <div className="fixed top-10 left-0 w-full bg-black h-full flex flex-col items-center justify-center md:hidden">
+    <div className="fixed top-10 left-0 w-full bg-black h-full flex flex-col items-start justify-center md:hidden">
+      <div className="w-full max-w-xs mx-auto">
       {navItems.map((item) => (
         <button
           key={item.name}
-          className={`py-6 px-10 flex items-center justify-center w-full ${
+          className={`py-6 px-20 flex items-center w-full ${
             pathname === item.path ? 'text-red-500' : 'text-white'
           }`}
           onClick={() => {
@@ -77,13 +78,14 @@ export default function NavBar() {
           <img
             src={item.icon}
             alt={item.name}
-            className={`w-10 h-10 mr-2 ${
+            className={`w-10 h-10 mr-6 ${
               pathname === item.path ? 'filter-red' : ''
             }`}
           />
           <span className="text-2xl">{item.name}</span>
         </button>
       ))}
+      </div>
     </div>
   )}
 </>
