@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 
 
-function SearchBar({ setSearchQuery, searchQuery, speechRecognition }) {
+function SearchBar({ setSearchQuery, searchQuery, handleAddToTopLine, pecs }) {
   const [isListening, setIsListening] = useState(false);
 
   // Handle Speech Recognition
@@ -25,6 +25,25 @@ function SearchBar({ setSearchQuery, searchQuery, speechRecognition }) {
 
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript.trim();
+      console.log('Recognized sentence:', transcript); 
+
+      // Split transcript into individual words
+      const words = transcript.toLowerCase().split(' ');
+      console.log('Recognized words:', words); // Log the words
+
+
+      // Filter PECs that match any of the words
+      const matchedPecs = words
+        .map(word => `${word}.svg`)
+        .filter(pec => pecs.includes(pec));
+      console.log('Matched PECs:', matchedPecs);
+      console.log('PECs list:', pecs);
+
+       // Add all matched PECs to Top Line in one go
+       if (matchedPecs.length > 0) {
+        handleAddToTopLine(matchedPecs);  // Pass the array of matched PECs
+      }
+
       setSearchQuery(transcript);
     };
 
@@ -32,9 +51,6 @@ function SearchBar({ setSearchQuery, searchQuery, speechRecognition }) {
       console.error('Speech recognition error', event);
       setIsListening(false);
     };
-
-    // Alert box to prompt the user
-    // alert('Please speak into your device and press OK when done.');
 
     recognition.start();
   };
@@ -69,9 +85,9 @@ function SearchBar({ setSearchQuery, searchQuery, speechRecognition }) {
         >
           <img src="/icons/microphone.svg" alt="Microphone" className="w-8 h-8" />
         </button>
-        {isListening && (
+        {/* {isListening && (
           <p className="ml-2 text-gray-500">Listening...</p>
-        )}
+        )} */}
       </div>
       </div>
       

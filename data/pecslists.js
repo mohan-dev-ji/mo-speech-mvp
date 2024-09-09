@@ -13,5 +13,25 @@ export const pecsLists = [
       "you.svg",
       "eat.svg"
     ]
+  },
+  {
+    "id": 1725879299014,
+    "pecs": [
+      "do.svg",
+      "you.svg",
+      "want.svg",
+      "help.svg"
+    ]
+  },
+  {
+    "id": 1725904990920,
+    "pecs": [
+      "what.svg",
+      "do.svg",
+      "you.svg",
+      "want.svg",
+      "to.svg",
+      "eat.svg"
+    ]
   }
 ];

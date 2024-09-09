@@ -7,11 +7,15 @@ import TopLine from './components/TopLine';
 
 import PecsGrid from './components/PecsGrid';
 
+import { useRouter } from 'next/navigation'; 
+
 function Home() {
 
   const [pecs, setPecs] = useState([]);
   const [selectedPECs, setSelectedPECs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+
+  const router = useRouter(); 
 
   const handleClearTopLine = () => {
     setSelectedPECs([]);
@@ -35,19 +39,14 @@ function Home() {
 
   const handlePlaySentence = () => {
     if (selectedPECs.length === 0) return;
-    let currentIndex = 0;
-    const playNextAudio = () => {
-      if (currentIndex < selectedPECs.length) {
-        const pec = selectedPECs[currentIndex];
-        const audio = new Audio(`/audio/${pec.replace('.svg', '.mp3')}`);
-        audio.play();
-        audio.onended = () => {
-          currentIndex += 1;
-          playNextAudio();
-        };
-      }
-    };
-    playNextAudio();
+
+    // const router = useRouter(); // Initialize the router
+
+    // Encode the selectedPECs array as a string to pass in the URL
+    const pecsString = encodeURIComponent(JSON.stringify(selectedPECs));
+
+    // Redirect to the playback page with the PECs array in the query
+    router.push(`/playback?pecs=${pecsString}`);
   };
 
   const filteredPECs = pecs.filter((pec) =>
@@ -66,6 +65,7 @@ function Home() {
         <PecsGrid 
             handleAddToTopLine={handleAddToTopLine}
             filteredPECs={filteredPECs}
+            pecs={pecs}
         />
         
         </div>

@@ -3,9 +3,15 @@
 
 import React, { useEffect, useState } from 'react';
 import ListItemCard from '../components/ListItemCard';
+import { useRouter } from 'next/navigation'; 
 
 function Lists() {
   const [savedLists, setSavedLists] = useState([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    console.log('Router is available:', router);
+  }, [router]);
 
   useEffect(() => {
     fetch('/api/loadPecsLists')
@@ -18,22 +24,29 @@ function Lists() {
 
   console.log(savedLists);
   
+  const handlePlayList = (pecs) => {
+    // Serialize the PECs and encode them
+    const pecsString = encodeURIComponent(JSON.stringify(pecs));
+
+    // Navigate to playback page with query parameters
+    router.push(`/playback?pecs=${pecsString}`);
+  };
 
   
-  const handlePlayList = (pecs) => {
-    let currentIndex = 0;
-    const playNextAudio = () => {
-      if (currentIndex < pecs.length) {
-        const audio = new Audio(`/audio/${pecs[currentIndex].replace('.svg', '.mp3')}`);
-        audio.play();
-        audio.onended = () => {
-          currentIndex += 1;
-          playNextAudio();
-        };
-      }
-    };
-    playNextAudio();
-  };
+  // const handlePlayList = (pecs) => {
+  //   let currentIndex = 0;
+  //   const playNextAudio = () => {
+  //     if (currentIndex < pecs.length) {
+  //       const audio = new Audio(`/audio/${pecs[currentIndex].replace('.svg', '.mp3')}`);
+  //       audio.play();
+  //       audio.onended = () => {
+  //         currentIndex += 1;
+  //         playNextAudio();
+  //       };
+  //     }
+  //   };
+  //   playNextAudio();
+  // };
 
   const handleDeleteList = async (id) => {
     const updatedLists = savedLists.filter(list => list.id !== id);
