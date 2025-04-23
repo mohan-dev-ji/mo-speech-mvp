@@ -41,7 +41,12 @@ export default function PlaybackPage() {
   };
 
   const handleGoBack = () => {
-    router.back(); // Navigate back to the previous page
+    // Store the PECs in history state
+    const state = { pecs: pecs };
+    // Use replaceState to update the current history entry
+    window.history.replaceState(state, '', window.location.href);
+    // Go back to the previous page
+    router.back();
   };
 
   return (
