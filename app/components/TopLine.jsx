@@ -11,9 +11,25 @@ import {
 import { Button } from "@/components/ui/button";
 import { Play, X, Mic, Search } from "lucide-react";
 
-function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSearchQuery, searchQuery, handleAddToTopLine, pecs}) {
+function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSearchQuery, searchQuery, handleAddToTopLine, pecs, isSpeechRecognitionActive, setIsSpeechRecognitionActive }) {
   const [showAlert, setShowAlert] = useState(false);
   const [isListening, setIsListening] = useState(false);
+  const [isPlayingAudio, setIsPlayingAudio] = useState(false);
+
+  // Function to play audio files sequentially
+  const playAudioSequentially = async (pecs) => {
+    if (isPlayingAudio) return; // Prevent multiple simultaneous playbacks
+    
+    setIsPlayingAudio(true);
+    for (const pec of pecs) {
+      const audio = new Audio(`/audio/${pec.replace('.svg', '.mp3')}`);
+      await new Promise((resolve) => {
+        audio.onended = resolve;
+        audio.play();
+      });
+    }
+    setIsPlayingAudio(false);
+  };
 
   // Handle Speech Recognition
   const handleSpeechRecognition = () => {
@@ -23,6 +39,7 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSear
     }
 
     alert('Press ok to start recording')
+    setIsSpeechRecognitionActive(true);
 
     const recognition = new webkitSpeechRecognition();
     recognition.lang = 'en-US';
@@ -30,7 +47,10 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSear
     recognition.maxAlternatives = 1;
 
     recognition.onstart = () => setIsListening(true);
-    recognition.onend = () => setIsListening(false);
+    recognition.onend = () => {
+      setIsListening(false);
+      setIsSpeechRecognitionActive(false);
+    };
 
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript.trim().toLowerCase();
@@ -81,16 +101,15 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSear
       handleClearTopLine();
 
       // Add all matched PECs to the top line in order
-      matchedPecs.forEach(pec => {
-        handleAddToTopLine(pec);
-      });
-
-      // Don't update the search query to avoid filtering the grid
+      if (matchedPecs.length > 0) {
+        handleAddToTopLine(matchedPecs);
+      }
     };
 
     recognition.onerror = (event) => {
       console.error('Speech recognition error', event);
       setIsListening(false);
+      setIsSpeechRecognitionActive(false);
     };
 
     recognition.start();
@@ -162,8 +181,8 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSear
             </Button>
             <Button
               onClick={handleSpeechRecognition}
-              className="flex-1"
-              variant="outline"
+              className={`flex-1 ${isListening ? 'animate-pulse bg-red-500 hover:bg-red-600 text-white' : ''}`}
+              variant={isListening ? "default" : "outline"}
               size="icon"
               disabled={isListening}
             >

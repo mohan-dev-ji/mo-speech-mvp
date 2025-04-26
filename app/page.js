@@ -11,6 +11,7 @@ function Home() {
   const [selectedPECs, setSelectedPECs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [isSpeechRecognitionActive, setIsSpeechRecognitionActive] = useState(false);
 
   const router = useRouter(); 
 
@@ -82,20 +83,28 @@ function Home() {
     setSelectedPECs([]);
   };
   
-  const handleAddToTopLine = (pec) => {
+  const handleAddToTopLine = async (pec) => {
     // If pec is an array, add all PECs at once
     if (Array.isArray(pec)) {
       setSelectedPECs(prevPECs => [...prevPECs, ...pec]);
-      // Play audio for each PEC
-      pec.forEach(p => {
-        const audio = new Audio(`/audio/${p.replace('.svg', '.mp3')}`);
-        audio.play();
-      });
+      // Only play audio if speech recognition is not active
+      if (!isSpeechRecognitionActive) {
+        for (const p of pec) {
+          const audio = new Audio(`/audio/${p.replace('.svg', '.mp3')}`);
+          await new Promise((resolve) => {
+            audio.onended = resolve;
+            audio.play();
+          });
+        }
+      }
     } else {
       // If pec is a single string, add it normally
       setSelectedPECs(prevPECs => [...prevPECs, pec]);
-      const audio = new Audio(`/audio/${pec.replace('.svg', '.mp3')}`);
-      audio.play();
+      // Only play audio if speech recognition is not active
+      if (!isSpeechRecognitionActive) {
+        const audio = new Audio(`/audio/${pec.replace('.svg', '.mp3')}`);
+        audio.play();
+      }
     }
   };
 
@@ -133,6 +142,8 @@ function Home() {
           setSearchQuery={setSearchQuery}
           searchQuery={searchQuery}
           pecs={pecs}
+          isSpeechRecognitionActive={isSpeechRecognitionActive}
+          setIsSpeechRecognitionActive={setIsSpeechRecognitionActive}
         />
       {/* PECs Grid */}
       <PecsGrid 

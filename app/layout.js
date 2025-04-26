@@ -3,7 +3,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
-import NavBar from "./components/NavBar";
+// import NavBar from "./components/NavBar";
 // import TestRouter from "./components/TestRouter";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -17,9 +17,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-gray-300">
-        <NavBar />
+        {/* <NavBar /> */}
         {/* <TestRouter /> */}
-        <main className="flex-1 p-8 md:ml-32 lg:ml-64 mt-16 md:mt-0">
+        <main className="flex-1 p-8">
         <div className={inter.className}>{children}</div>
         </main>
       </body>
