@@ -74,8 +74,6 @@ function SearchBar({ setSearchQuery, searchQuery, handleAddToTopLine, pecs }) {
         </button>
       )}
      
-
-
       {/* Microphone Icon */}
       <div className="mt-2 flex items-center pl-10">
         <button

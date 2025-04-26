@@ -83,10 +83,20 @@ function Home() {
   };
   
   const handleAddToTopLine = (pec) => {
-    setSelectedPECs([...selectedPECs, pec]);
-    // Play the corresponding audio file
-    const audio = new Audio(`/audio/${pec.replace('.svg', '.mp3')}`);
-    audio.play();
+    // If pec is an array, add all PECs at once
+    if (Array.isArray(pec)) {
+      setSelectedPECs(prevPECs => [...prevPECs, ...pec]);
+      // Play audio for each PEC
+      pec.forEach(p => {
+        const audio = new Audio(`/audio/${p.replace('.svg', '.mp3')}`);
+        audio.play();
+      });
+    } else {
+      // If pec is a single string, add it normally
+      setSelectedPECs(prevPECs => [...prevPECs, pec]);
+      const audio = new Audio(`/audio/${pec.replace('.svg', '.mp3')}`);
+      audio.play();
+    }
   };
 
   const handlePlaySentence = () => {
@@ -119,6 +129,10 @@ function Home() {
           selectedPECs={selectedPECs}
           handleClearTopLine={handleClearTopLine}
           handlePlaySentence={handlePlaySentence}
+          handleAddToTopLine={handleAddToTopLine}
+          setSearchQuery={setSearchQuery}
+          searchQuery={searchQuery}
+          pecs={pecs}
         />
       {/* PECs Grid */}
       <PecsGrid 

@@ -8,9 +8,93 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
+import { Play, X, Mic, Search } from "lucide-react";
 
-function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence }) {
+function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSearchQuery, searchQuery, handleAddToTopLine, pecs}) {
   const [showAlert, setShowAlert] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+
+  // Handle Speech Recognition
+  const handleSpeechRecognition = () => {
+    if (!('webkitSpeechRecognition' in window)) {
+      alert("Your browser doesn't support speech recognition. Try Chrome.");
+      return;
+    }
+
+    alert('Press ok to start recording')
+
+    const recognition = new webkitSpeechRecognition();
+    recognition.lang = 'en-US';
+    recognition.interimResults = false;
+    recognition.maxAlternatives = 1;
+
+    recognition.onstart = () => setIsListening(true);
+    recognition.onend = () => setIsListening(false);
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript.trim().toLowerCase();
+      console.log('Recognized sentence:', transcript); 
+
+      // Split transcript into individual words and remove punctuation
+      const words = transcript.split(' ')
+        .map(word => word.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, ''));
+
+      console.log('Processed words:', words);
+
+      // Find all matching PECs while maintaining the order of the spoken words
+      const matchedPecs = words
+        .map(word => {
+          // Try exact match first (with .svg extension)
+          const exactMatch = `${word}.svg`;
+          if (pecs.includes(exactMatch)) {
+            console.log('Found exact match:', exactMatch);
+            return exactMatch;
+          }
+
+          // Try exact match with the word as is (case sensitive)
+          const exactWordMatch = pecs.find(pec => 
+            pec.toLowerCase() === `${word}.svg`.toLowerCase()
+          );
+          if (exactWordMatch) {
+            console.log('Found exact word match:', exactWordMatch);
+            return exactWordMatch;
+          }
+
+          // Try match without extension
+          const matchWithoutExtension = pecs.find(pec => 
+            pec.replace('.svg', '').toLowerCase() === word.toLowerCase()
+          );
+          if (matchWithoutExtension) {
+            console.log('Found match without extension:', matchWithoutExtension);
+            return matchWithoutExtension;
+          }
+
+          console.log('No match found for word:', word);
+          return null;
+        })
+        .filter(pec => pec !== null); // Remove any null values (unmatched words)
+
+      console.log('Matched PECs:', matchedPecs);
+
+      // Clear existing PECs first
+      handleClearTopLine();
+
+      // Add all matched PECs to the top line in order
+      matchedPecs.forEach(pec => {
+        handleAddToTopLine(pec);
+      });
+
+      // Don't update the search query to avoid filtering the grid
+    };
+
+    recognition.onerror = (event) => {
+      console.error('Speech recognition error', event);
+      setIsListening(false);
+    };
+
+    recognition.start();
+  };
 
   const handleAddToLists = async () => {
     try {
@@ -45,48 +129,73 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence }) {
     <>
       <div>
         <div 
-          className="bg-white h-20 flex items-center justify-between px-4 shadow-lg mb-4"
-          style={{ height: '120px' }}
+          className="bg-white flex items-center justify-between px-4 py-4 shadow-lg mb-4 min-h-[120px]"
+          style={{ minHeight: '120px' }}
           onClick={handlePlaySentence} 
         >
-          <div className="flex space-x-4">
+          <div className="flex flex-wrap gap-4 w-full">
             {selectedPECs.map((pec, index) => (
-              <img key={index} src={`/pecs/${pec}`} alt={pec} className="w-20 h-20" />
+              <img key={index} src={`/pecs/${pec}`} alt={pec} className="w-20 h-20 flex-shrink-0" />
             ))}
           </div>
-          <button
-            onClick={(e) => {
-              e.stopPropagation(); // Prevents the click event from bubbling up to the top line
-              handleClearTopLine();
-            }}
-            className="text-red-500 font-bold text-xl"
-          >
-            X
-          </button>
         </div>
-        <div className="justify-center flex mb-4">
-          <button
-            onClick={handleAddToLists}
-            className="bg-green-600 text-white px-4 py-2 mt-2 rounded"
-          >
-            Add to Lists
-          </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          {/* Buttons Column */}
+          <div className="flex justify-center space-x-4">
+            <Button
+              onClick={handlePlaySentence}
+              className="flex-1 bg-green-600 hover:bg-green-700 text-white"
+              size="icon"
+            >
+              <Play className="h-4 w-4" />
+            </Button>
+            <Button
+              onClick={(e) => {
+                e.stopPropagation();
+                handleClearTopLine();
+              }}
+              className="flex-1"
+              variant="destructive"
+              size="icon"
+            >
+              <X className="h-4 w-4" />
+            </Button>
+            <Button
+              onClick={handleSpeechRecognition}
+              className="flex-1"
+              variant="outline"
+              size="icon"
+              disabled={isListening}
+            >
+              <Mic className="h-4 w-4" />
+            </Button>
+          </div>
+          
+          {/* Search Bar Column */}
+          <div className="relative flex items-center">
+            <Search className="absolute left-3 h-4 w-4 text-gray-500" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search PECs..."
+              className="w-full p-2 border border-gray-300 rounded-full shadow-sm pl-10 pr-10"
+            />
+            {searchQuery && (
+              <Button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2 h-8 w-8 p-0"
+                variant="ghost"
+                size="icon"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            )}
+          </div>
         </div>
       </div>
 
-      <AlertDialog open={showAlert} onOpenChange={setShowAlert}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Success!</AlertDialogTitle>
-            <AlertDialogDescription>
-              Your sequence of PECs has been added to the lists page.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogAction>OK</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+     
     </>
   );
 }
