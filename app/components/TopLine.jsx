@@ -7,8 +7,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
-import { Button } from "@/components/ui/button";
+} from "./ui/alert-dialog";
+import { Button } from "./ui/button";
 import { Play, X, Mic, Search } from "lucide-react";
 
 function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSearchQuery, searchQuery, handleAddToTopLine, pecs, isSpeechRecognitionActive, setIsSpeechRecognitionActive }) {

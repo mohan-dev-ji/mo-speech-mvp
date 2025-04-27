@@ -96,33 +96,13 @@ function Search() {
   
         // Add to the selectedPECs state
         setSelectedPECs((prevSelectedPECs) => [...prevSelectedPECs, pec]);
-  
-        // Play the corresponding audio file
-        // const audio = new Audio(`/audio/${pec.replace('.svg', '.mp3')}`);
-        // audio.play();
+
       } else {
         console.error('Invalid PEC type:', pec);
       }
     });
   };
 
-  // const handlePlaySentence = () => {
-  //   if (selectedPECs.length === 0) return;
-  //   console.log("selected pecs:", selectedPECs);
-  //   let currentIndex = 0;
-  //   const playNextAudio = () => {
-  //     if (currentIndex < selectedPECs.length) {
-  //       const pec = selectedPECs[currentIndex];
-  //       const audio = new Audio(`/audio/${pec.replace('.svg', '.mp3')}`);
-  //       audio.play();
-  //       audio.onended = () => {
-  //         currentIndex += 1;
-  //         playNextAudio();
-  //       };
-  //     }
-  //   };
-  //   playNextAudio();
-  // };
 
   const handlePlaySentence = () => {
     if (selectedPECs.length === 0) return;

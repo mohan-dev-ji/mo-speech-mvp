@@ -1,6 +1,6 @@
 "use client"; // Ensure this is a client-side component
 
-import { Button } from '@/components/ui/button';
+import { Button } from '../components/ui/button';
 import { Play, ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation'; 
 import { useEffect, useState } from 'react';
