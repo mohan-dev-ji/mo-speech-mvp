@@ -148,7 +148,7 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSear
     <>
       <div>
         <div 
-          className="bg-white flex items-center justify-between px-4 py-4 shadow-lg mb-4 min-h-[120px]"
+          className="bg-white flex items-center justify-between px-4 py-4 rounded-md border-4 border-gray-200 mb-4 min-h-[120px]"
           style={{ minHeight: '120px' }}
           onClick={handlePlaySentence} 
         >

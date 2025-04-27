@@ -1,5 +1,7 @@
 "use client"; // Ensure this is a client-side component
 
+import { Button } from '@/components/ui/button';
+import { Play, ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation'; 
 import { useEffect, useState } from 'react';
 
@@ -61,19 +63,22 @@ export default function PlaybackPage() {
       )}
 
       <div className="flex space-x-4">
-        <button
-          onClick={handlePlayAgain}
-          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
-        >
-          Play Again
-        </button>
-
-        <button
+        <Button
           onClick={handleGoBack}
-          className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700"
+          className="flex-1"
+          variant="outline"
+          size="icon"
         >
-          Back
-        </button>
+          <ArrowLeft className="h-4 w-4" />
+        </Button>
+        
+        <Button
+          onClick={handlePlayAgain}
+          className="flex-1 bg-green-600 hover:bg-green-700 text-white"
+          size="icon"
+        >
+          <Play className="h-4 w-4" />
+        </Button>
       </div>
     </div>
   );
