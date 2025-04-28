@@ -1,12 +1,12 @@
-"use client"; 
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import TopLine from './components/TopLine';
 import PecsGrid from './components/PecsGrid';
+import AppHeader from './components/AppHeader';
 import { useRouter } from 'next/navigation'; 
 
 function Home() {
-
   const [pecs, setPecs] = useState([]);
   const [selectedPECs, setSelectedPECs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -132,9 +132,10 @@ function Home() {
 
   return (
     <>
+      <AppHeader />
       {/* Main Content */}
       <div>
-      <TopLine 
+        <TopLine 
           selectedPECs={selectedPECs}
           handleClearTopLine={handleClearTopLine}
           handlePlaySentence={handlePlaySentence}
@@ -145,15 +146,15 @@ function Home() {
           isSpeechRecognitionActive={isSpeechRecognitionActive}
           setIsSpeechRecognitionActive={setIsSpeechRecognitionActive}
         />
-      {/* PECs Grid */}
-      <PecsGrid 
+        {/* PECs Grid */}
+        <PecsGrid 
           handleAddToTopLine={handleAddToTopLine}
           filteredPECs={filteredPECs}
           pecs={pecs}
-      />      
+        />      
       </div>
     </>
   )
 };
 
-export default Home;
+export default Home; 
