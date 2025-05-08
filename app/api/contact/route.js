@@ -19,7 +19,7 @@ export async function POST(req) {
     // Email content
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'contact@mospeech.com',
+      to: 'admin@mospeech.com',
       subject: `New Contact Form Submission from ${name}`,
       text: `
 Name: ${name}
