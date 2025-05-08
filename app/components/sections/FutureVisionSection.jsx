@@ -13,7 +13,7 @@ function FutureVisionSection() {
               <H2 className="mx-auto max-w-[500px]">
               Help Shape the Future of Mo Speech              </H2>
               <p className="text-muted-foreground md:text-xl mx-auto max-w-[600px]">
-              We’re building Mo Speech to truly support families and professionals using AAC — and your experience matters. If you’ve used AAC or support someone who does, we’d love to hear from you. Take our short survey and help us create tools that make communication easier for everyone.
+              We’re building Mo Speech to truly support families and professionals using AAC. If you’ve used AAC or support someone who does, we’d love to hear from you. Take our short survey and help us create tools that make communication easier for everyone.
               </p>
             </div>
             <div className="flex gap-2 min-[400px]:flex-row">

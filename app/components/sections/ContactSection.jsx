@@ -20,7 +20,7 @@ export default function ContactForm() {
   }
 
   return (
-    <section className="w-full py-12 md:py-24 lg:py-32">
+    <section id="contact" className="w-full py-12 md:py-24 lg:py-32">
       <div className="max-w-[1440px] mx-auto px-[24px] md:px-[112px]">
         <div className="flex flex-col items-center">
           <div className="flex flex-col items-center text-center space-y-8 max-w-3xl mx-auto">
