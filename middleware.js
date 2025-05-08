@@ -6,7 +6,8 @@ export default authMiddleware({
     "/landing",
     "/api/pecs",
     "/api/loadPecsLists",
-    "/api/savePecsLists"
+    "/api/savePecsLists",
+    "/api/contact"
   ]
 });
 
