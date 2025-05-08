@@ -4,6 +4,7 @@ import { Button } from '../components/ui/button';
 import { Play, ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation'; 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function PlaybackPage() {
   const router = useRouter();
@@ -54,9 +55,11 @@ export default function PlaybackPage() {
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-white">
       {pecs.length > 0 && (
-        <img
+        <Image
           src={`/pecs/${pecs[currentIndex]}`}
           alt={pecs[currentIndex]}
+          width={800}
+          height={800}
           className="max-w-full max-h-full w-auto h-auto"
           style={{ maxWidth: '90vw', maxHeight: '90vh' }}
         />

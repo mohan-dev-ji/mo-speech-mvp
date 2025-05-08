@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 
 
@@ -81,7 +82,7 @@ function SearchBar({ setSearchQuery, searchQuery, handleAddToTopLine, pecs }) {
           className="text-gray-500 hover:text-gray-700"
           disabled={isListening}
         >
-          <img src="/icons/microphone.svg" alt="Microphone" className="w-8 h-8" />
+          <Image src="/icons/microphone.svg" alt="Microphone" width={32} height={32} />
         </button>
         {/* {isListening && (
           <p className="ml-2 text-gray-500">Listening...</p>

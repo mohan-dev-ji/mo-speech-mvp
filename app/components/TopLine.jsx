@@ -10,6 +10,7 @@ import {
 } from "./ui/alert-dialog";
 import { Button } from "./ui/button";
 import { Play, X, Mic, Search } from "lucide-react";
+import Image from 'next/image';
 
 function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSearchQuery, searchQuery, handleAddToTopLine, pecs, isSpeechRecognitionActive, setIsSpeechRecognitionActive }) {
   const [showAlert, setShowAlert] = useState(false);
@@ -154,7 +155,14 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSear
         >
           <div className="flex flex-wrap gap-4 w-full">
             {selectedPECs.map((pec, index) => (
-              <img key={index} src={`/pecs/${pec}`} alt={pec} className="w-20 h-20 flex-shrink-0" />
+              <Image 
+                key={index} 
+                src={`/pecs/${pec}`} 
+                alt={pec} 
+                width={80} 
+                height={80} 
+                className="flex-shrink-0" 
+              />
             ))}
           </div>
         </div>

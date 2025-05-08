@@ -27,7 +27,7 @@ function Search() {
       .then((data) => setPecs(data))
       .catch((error) => console.error('Error fetching PECs:', error));
       console.log(pecs);
-  }, []);
+  }, [pecs]);
 
   // Check for PECs in history state when component mounts
   useEffect(() => {

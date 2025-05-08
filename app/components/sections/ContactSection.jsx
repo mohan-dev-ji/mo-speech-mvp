@@ -28,7 +28,7 @@ export default function ContactForm() {
               <H2 className="mx-auto max-w-[500px]">
               We Value Your Feedback             </H2>
               <p className="text-muted-foreground md:text-xl mx-auto max-w-[600px]">
-              Help us improve Mo Speech by sharing your experiences, suggestions, or reporting any issues you've encountered.
+              Help us improve Mo Speech by sharing your experiences, suggestions, or reporting any issues you&apos;ve encountered.
               </p>
             </div>
             <form className="w-full space-y-4 mx-auto max-w-[600px]" onSubmit={handleSubmit}>
