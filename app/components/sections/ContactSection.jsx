@@ -7,16 +7,39 @@ import { H2 } from "../ui/typography"
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: "", email: "", message: "" })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null)
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // For now, just log the form. Later, connect to backend or email service.
-    console.log(form)
-    alert("Form submitted! (Not yet connected to email)")
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      setSubmitStatus('success')
+      setForm({ name: "", email: "", message: "" })
+    } catch (error) {
+      console.error('Error:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -26,9 +49,10 @@ export default function ContactForm() {
           <div className="flex flex-col items-center text-center space-y-8 max-w-3xl mx-auto">
             <div className="space-y-4 w-full">
               <H2 className="mx-auto max-w-[500px]">
-              We Value Your Feedback             </H2>
+                We Value Your Feedback
+              </H2>
               <p className="text-muted-foreground md:text-xl mx-auto max-w-[600px]">
-              Help us improve Mo Speech by sharing your experiences, suggestions, or reporting any issues you&apos;ve encountered.
+                Help us improve Mo Speech by sharing your experiences, suggestions, or reporting any issues you&apos;ve encountered.
               </p>
             </div>
             <form className="w-full space-y-4 mx-auto max-w-[600px]" onSubmit={handleSubmit}>
@@ -39,6 +63,7 @@ export default function ContactForm() {
                 value={form.name}
                 onChange={handleChange}
                 required
+                disabled={isSubmitting}
               />
               <Input
                 name="email"
@@ -48,6 +73,7 @@ export default function ContactForm() {
                 value={form.email}
                 onChange={handleChange}
                 required
+                disabled={isSubmitting}
               />
               <Textarea
                 name="message"
@@ -56,13 +82,25 @@ export default function ContactForm() {
                 value={form.message}
                 onChange={handleChange}
                 required
+                disabled={isSubmitting}
               />
-              <Button type="submit" className="w-full">Send message</Button>
+              <Button 
+                type="submit" 
+                className="w-full"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send message'}
+              </Button>
+              {submitStatus === 'success' && (
+                <p className="text-green-600">Message sent successfully!</p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="text-red-600">Failed to send message. Please try again.</p>
+              )}
             </form>
           </div>
         </div>
       </div>
-      </section>
-    
+    </section>
   )
 }
