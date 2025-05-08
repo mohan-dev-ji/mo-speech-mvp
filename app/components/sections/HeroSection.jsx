@@ -1,8 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import { Button } from "../ui/button";
 import { H1 } from "../ui/typography";
-import { SignInButton } from "@clerk/nextjs";
+import { SignUpButton } from "@clerk/nextjs";
 
 function HeroSection() {
   return (
@@ -19,11 +17,11 @@ function HeroSection() {
               </p>
             </div>
             <div className="flex gap-2 min-[400px]:flex-row">
-            <SignInButton mode="modal" afterSignInUrl="/">
+            <SignUpButton mode="modal" afterSignInUrl="/">
                 <button className="bg-slate-900 hover:bg-slate-500 text-slate-50 py-2 px-4 rounded">
                   Start Modelling for Free
                 </button>
-              </SignInButton>
+              </SignUpButton>
             </div>
           </div>
         </div>

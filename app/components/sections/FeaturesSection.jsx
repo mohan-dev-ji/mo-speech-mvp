@@ -1,7 +1,4 @@
-import { Keyboard, Maximize2, Mic, Search } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardContent } from "../ui/card";
 import { H2 } from "../ui/typography";
-import Image from "next/image";
 import FeatureCard from "../FeatureCard";
 
 function FeaturesSection() {

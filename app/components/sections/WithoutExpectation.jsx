@@ -1,7 +1,6 @@
-import { Link } from "lucide-react"
-import { Button } from "../ui/button"
 import Image from "next/image"
 import { H2 } from "../ui/typography"
+
 function WithoutExpectation() {
   return (
     <section id="without-expectation" className="w-full py-[64px] bg-slate-100">
@@ -26,7 +25,7 @@ function WithoutExpectation() {
                </li>
                <li className="flex items-start gap-2">
                  <span className="text-primary mt-1">•</span>
-                 <span>It's about talking naturally with PECs, making comments, and building connection, not quizzing or testing the child.</span>
+                 <span>It&apos;s about talking naturally with PECs, making comments, and building connection, not quizzing or testing the child.</span>
                </li>
              </ul>
            </div>

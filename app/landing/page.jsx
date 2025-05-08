@@ -1,14 +1,5 @@
 "use client";
 
-import { SignInButton } from "@clerk/nextjs";
-import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { Button } from "../components/ui/button";
-import { Grid2X2, Heart, Home, Keyboard, Maximize2, Menu, Mic, School, Users, X } from "lucide-react";
-import { useState } from "react";
-import { Card, CardHeader, CardTitle, CardContent } from "../components/ui/card";
-import Logo from "../components/Logo";
 import HeroSection from "../components/sections/HeroSection";
 import AboutSection from "../components/sections/AboutSection";
 import FeaturesSection from "../components/sections/FeaturesSection";
