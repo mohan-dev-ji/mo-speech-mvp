@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 function PecsGrid({ filteredPECs, handleAddToTopLine }) {
 
   
@@ -9,7 +11,14 @@ function PecsGrid({ filteredPECs, handleAddToTopLine }) {
         className="bg-white p-2 rounded-md border-4 border-gray-200"
         onClick={() => handleAddToTopLine(pec)}
         >
-          <img src={`/pecs/${pec}`} alt={pec} className="max-w-full h-auto mx-auto cursor-pointer" />
+          <Image 
+            src={`/pecs/${pec}`} 
+            alt={pec} 
+            width={100}
+            height={100}
+            className="max-w-full h-auto mx-auto cursor-pointer"
+            style={{ objectFit: 'contain' }}
+          />
         </div>
       ))}
     </div>
