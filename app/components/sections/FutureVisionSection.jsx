@@ -19,7 +19,7 @@ function FutureVisionSection() {
             </div>
             <div className="flex gap-2 min-[400px]:flex-row">
               <Button size="lg" asChild>
-                <Link href="/survey">Take the Survey</Link>
+                <Link href="https://docs.google.com/forms/d/e/1FAIpQLSdJw7Y0Z4b-3IfdDA3513SapJ4SA6A5r177jE-8N2fQ9YUHkQ/viewform?usp=dialog">Take the Survey</Link>
               </Button>
             </div>
           </div>
