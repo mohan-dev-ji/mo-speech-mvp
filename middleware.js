@@ -2,7 +2,7 @@ import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
   publicRoutes: [
-    "/landing",
+    "/",
     "/api/pecs",
     "/api/loadPecsLists",
     "/api/savePecsLists",
@@ -13,9 +13,9 @@ export default authMiddleware({
     if (req.nextUrl.pathname === "/") {
       if (auth.userId) {
         return Response.redirect(new URL("/home", req.url));
-      } else {
-        return Response.redirect(new URL("/landing", req.url));
       }
+      // If not authenticated, stay on the landing page (root)
+      return;
     }
   }
 });
