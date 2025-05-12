@@ -5,8 +5,8 @@ export default function Home() {
   const { userId } = auth();
   
   if (userId) {
-    redirect("/pages/home");
+    redirect("/home");
   } else {
-    redirect("/pages/landing");
+    redirect("/landing");
   }
 } 

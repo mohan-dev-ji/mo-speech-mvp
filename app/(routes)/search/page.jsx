@@ -109,7 +109,7 @@ function Search() {
     const pecsString = encodeURIComponent(JSON.stringify(selectedPECs));
 
     // Redirect to the playback page with the PECs array in the query
-    router.push(`/pages/playback?pecs=${pecsString}`);
+    router.push(`/playback?pecs=${pecsString}`);
   };
 
   const filteredPECs = searchQuery ? pecs.filter((pec) =>
