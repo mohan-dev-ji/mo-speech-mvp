@@ -1,16 +1,12 @@
 "use client"; 
 
-
 import React, { useState, useEffect } from 'react';
-
-import TopLine from '../components/TopLine';
-import SearchBar from '../components/SearchBar';
-import PecsGrid from '../components/PecsGrid';
+import TopLine from '../../components/TopLine';
+import SearchBar from '../../components/SearchBar';
+import PecsGrid from '../../components/PecsGrid';
 import { useRouter } from 'next/navigation'; 
 
-
 function Search() {
-
   const [pecs, setPecs] = useState([]);
   const [selectedPECs, setSelectedPECs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -80,7 +76,6 @@ function Search() {
     console.log('Selected PECs updated:', selectedPECs);
   }, [selectedPECs]);
   
-
   const handleAddToTopLine = (pecs) => {
     console.log('handleAddToTopLine called with:', pecs);
     // Ensure pecs is an array, even if a single string is passed
@@ -103,7 +98,6 @@ function Search() {
     });
   };
 
-
   const handlePlaySentence = () => {
     if (selectedPECs.length === 0) return;
 
@@ -115,14 +109,13 @@ function Search() {
     const pecsString = encodeURIComponent(JSON.stringify(selectedPECs));
 
     // Redirect to the playback page with the PECs array in the query
-    router.push(`/playback?pecs=${pecsString}`);
+    router.push(`/pages/playback?pecs=${pecsString}`);
   };
 
   const filteredPECs = searchQuery ? pecs.filter((pec) =>
     pec.toLowerCase().includes(searchQuery.toLowerCase())
   )
   : [];
-
 
   return (
     <>
@@ -151,4 +144,4 @@ function Search() {
   )
 };
 
-export default Search;
+export default Search; 

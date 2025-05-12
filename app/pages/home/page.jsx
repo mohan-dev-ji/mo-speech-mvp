@@ -1,12 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import TopLine from '../components/TopLine';
-import PecsGrid from '../components/PecsGrid';
-import AppHeader from '../components/AppHeader';
+import TopLine from '../../components/TopLine';
+import PecsGrid from '../../components/PecsGrid';
+import AppHeader from '../../components/AppHeader';
 import { useRouter } from 'next/navigation'; 
 
-export default function AppPage() {
+export default function HomePage() {
   const [pecs, setPecs] = useState([]);
   const [selectedPECs, setSelectedPECs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
@@ -119,7 +119,7 @@ export default function AppPage() {
     const pecsString = encodeURIComponent(JSON.stringify(selectedPECs));
 
     // Redirect to the playback page with the PECs array in the query
-    router.push(`/playback?pecs=${pecsString}`);
+    router.push(`/pages/playback?pecs=${pecsString}`);
   };
 
   const filteredPECs = pecs.filter((pec) =>

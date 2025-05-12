@@ -2,7 +2,7 @@ import { authMiddleware } from "@clerk/nextjs";
 
 export default authMiddleware({
   publicRoutes: [
-    "/landing",
+    "/pageslanding",
     "/api/pecs",
     "/api/loadPecsLists",
     "/api/savePecsLists",
@@ -12,9 +12,9 @@ export default authMiddleware({
     // Handle root path redirection
     if (req.nextUrl.pathname === "/") {
       if (auth.userId) {
-        return Response.redirect(new URL("/app", req.url));
+        return Response.redirect(new URL("/pages/home", req.url));
       } else {
-        return Response.redirect(new URL("/landing", req.url));
+        return Response.redirect(new URL("/pages/landing", req.url));
       }
     }
   }
