@@ -205,7 +205,7 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSear
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search PECs..."
+              placeholder="Search symbols..."
               className="w-full p-2 border border-gray-300 rounded-full shadow-sm pl-10 pr-10"
             />
             {searchQuery && (

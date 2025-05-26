@@ -11,7 +11,7 @@ function AboutSection() {
                 <p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                 Mo Speech is a free online resource that bridge’s the gap between everyday life and AAC training. 
 
-This is designed for fast, easy access to core PECs for adults that are training children on the meaning of the core words .
+This is designed for fast, easy access to core symbols for adults that are training children on the meaning of the core words .
                 </p>
               </div>
               <div className="w-full flex flex-col gap-16 pt-12 lg:flex-row lg:justify-between">
@@ -20,7 +20,7 @@ This is designed for fast, easy access to core PECs for adults that are training
                     <CardTitle className="text-lg">Instant Search</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-muted-foreground">Search PECs instantly with voice or typing.</p>
+                    <p className="text-sm text-muted-foreground">Search symbols instantly with voice or typing.</p>
                   </CardContent>
                 </Card>
                 <Card className="flex-1">
@@ -28,7 +28,7 @@ This is designed for fast, easy access to core PECs for adults that are training
                     <CardTitle className="text-lg">Full-Screen Display</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-sm text-muted-foreground">Show PECs full-screen for easier focus.</p>
+                    <p className="text-sm text-muted-foreground">Show symbols full-screen for easier focus.</p>
                   </CardContent>
                 </Card>
                 <Card className="flex-1">

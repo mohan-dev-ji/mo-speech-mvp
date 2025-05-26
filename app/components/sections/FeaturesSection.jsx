@@ -6,22 +6,22 @@ function FeaturesSection() {
     {
       videoSrc: "/video/voice rec.mp4",
       title: "Voice Recognition",
-      description: "Find PECs instantly by speaking into your device."
+      description: "Find symbols instantly by speaking into your device."
     },
     {
       videoSrc: "/video/type.mp4",
       title: "Dynamic Typing",
-      description: "Type a few letters and PECs appear dynamically in real time."
+      description: "Type a few letters and symbols appear dynamically in real time."
     },
     {
       videoSrc: "/video/full screen.mp4",
       title: "Full-Screen Display",
-      description: "Press a PEC to enlarge it full-screen, minimizing distractions and improving visual focus."
+      description: "Press a symbol to enlarge it full-screen, minimizing distractions and improving visual focus."
     },
     {
       videoSrc: "/video/Corewords.mp4",
       title: "Core Word Set",
-      description: "Start with 64 carefully selected PECs that cover essential everyday communication."
+      description: "Start with 64 carefully selected symbols that cover essential everyday communication."
     }
   ];
 

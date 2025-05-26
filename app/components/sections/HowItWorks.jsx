@@ -17,7 +17,7 @@ function HowItWorks() {
                 1
               </div>
               <h3 className="text-xl font-bold mb-2">Open Mo Speech</h3>
-              <p className="text-muted-foreground">Access Mo Speech on any device with a web browser</p>
+              <p className="text-muted-foreground">Access Mo Speech on any device with the Chrome web browser</p>
             </div>
 
             {/* Step 2 */}
@@ -25,7 +25,7 @@ function HowItWorks() {
               <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-xl font-bold text-primary-foreground mb-4">
                 2
               </div>
-              <h3 className="text-xl font-bold mb-2">Search for a PEC</h3>
+              <h3 className="text-xl font-bold mb-2">Search for a symbol</h3>
               <p className="text-muted-foreground">Use voice or typing to quickly find the right symbol</p>
             </div>
 
@@ -35,7 +35,7 @@ function HowItWorks() {
                 3
               </div>
               <h3 className="text-xl font-bold mb-2">Model Communication</h3>
-              <p className="text-muted-foreground">Show the PEC while speaking to boost learning</p>
+              <p className="text-muted-foreground">Show the symbol while speaking to boost learning</p>
             </div>
           </div>
         </div>

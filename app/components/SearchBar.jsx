@@ -63,7 +63,7 @@ function SearchBar({ setSearchQuery, searchQuery, handleAddToTopLine, pecs }) {
         type="text"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search PECs..."
+        placeholder="Search symbols..."
         className="w-full p-2 border border-gray-300 rounded-full shadow-sm pr-10 pl-5"
       />
       {searchQuery && (

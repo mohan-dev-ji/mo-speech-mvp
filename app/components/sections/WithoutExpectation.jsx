@@ -20,12 +20,12 @@ function WithoutExpectation() {
              <H2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl mb-4">What is Modelling Without Expectation?</H2>
              <ul className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed space-y-4 list-none">
                <li className="flex items-start gap-2">
-                 <span className="text-primary mt-1">•</span>
+                 <span className="text-primary">•</span>
                  <span>Modelling means using the Mo Speech app yourself to show how communication works, without expecting the learner to respond right away.</span>
                </li>
                <li className="flex items-start gap-2">
-                 <span className="text-primary mt-1">•</span>
-                 <span>It&apos;s about talking naturally with PECs, making comments, and building connection, not quizzing or testing the child.</span>
+                 <span className="text-primary">•</span>
+                 <span>It&apos;s about talking naturally with symbols, making comments, and building connection, not quizzing or testing the child.</span>
                </li>
              </ul>
            </div>
