@@ -22,7 +22,7 @@ export default function LandingPage() {
         Mo Speech is getting an important update
       </h1>
       <p className="text-lg md:text-xl text-gray-600 max-w-xl">
-        We're making changes to bring you a better, more compliant experience. Thanks for your patience while we get things ready.
+        We&apos;re making changes to bring you a better, more compliant experience. Thanks for your patience while we get things ready.
       </p>
     </div>
     // <div className="flex min-h-screen flex-col max-w-[1440px] mx-auto w-full">
