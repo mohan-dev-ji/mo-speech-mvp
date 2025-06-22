@@ -123,7 +123,7 @@ export default function HomePage() {
   };
 
   const filteredPECs = pecs.filter((pec) =>
-    pec.toLowerCase().includes(searchQuery.toLowerCase())
+    pec.toLowerCase().startsWith(searchQuery.toLowerCase())
   );
 
   if (isLoading) {
