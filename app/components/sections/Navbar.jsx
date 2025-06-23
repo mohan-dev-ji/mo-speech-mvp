@@ -1,120 +1,44 @@
-"use client";
+import React, { useState } from 'react';
+import Logo from '../Logo';
+import { Button } from '../ui/button';
 
-import { SignInButton } from "@clerk/nextjs";
-import Link from "next/link";
-import { Button } from "../ui/button";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import Logo from "../Logo";
+const HamburgerIcon = (props) => (
+  <svg width="38" height="26" viewBox="0 0 38 26" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path d="M0.25 25.5V21.3333H37.75V25.5H0.25ZM0.25 15.0833V10.9167H37.75V15.0833H0.25ZM0.25 4.66667V0.5H37.75V4.66667H0.25Z" fill="white"/>
+  </svg>
+);
 
 export default function Navbar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-slate-50">
-      <div className="max-w-[1440px] mx-auto flex h-16 items-center space-x-4 px-8 py-4 justify-between sm:space-x-0">
-        <div className="flex gap-2 items-center text-xl font-bold text-primary">
-          <Link href="/" className="flex items-center">
-            <Logo />
-          </Link>
+    <div className="relative w-full shadow-lg z-50">
+      <div className="mx-auto flex h-24 max-w-[1080px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <Logo />
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          <Button variant="default" size="nav">Features</Button>
+          <Button variant="default" size="nav">User guide</Button>
+          <Button variant="default" size="nav">Contact</Button>
+          <Button variant="secondary-alt" size="nav">Sign In</Button>
         </div>
-        
-        {/* Mobile Menu Button */}
+        {/* Hamburger for mobile */}
         <button
-          className="md:hidden ml-auto p-2"
-          onClick={toggleMobileMenu}
-          aria-label="Toggle menu"
+          className="md:hidden flex items-center justify-center px-4 focus:outline-none"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-label="Open menu"
         >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
+          <HamburgerIcon className="w-8 h-8" />
         </button>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex flex-1 items-center justify-end space-x-4">
-          <nav className="flex items-center space-x-6">
-            <Link
-              href="#about"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              About
-            </Link>
-            <Link
-              href="#features"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Features
-            </Link>
-            <Link
-              href="#how-it-works"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              How It Works
-            </Link>
-            <Button variant="outline" asChild>
-              <Link 
-                href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-            </Button>
-            <SignInButton mode="modal" afterSignInUrl="/">
-              <Button variant="default">
-                Sign In
-              </Button>
-            </SignInButton>
-          </nav>
-        </div>
       </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden border-t">
-          <nav className="flex flex-col space-y-4 p-4 bg-white">
-            <Link
-              href="#features"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Features
-            </Link>
-            <Link
-              href="#about"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="#how-it-works"
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              How It Works
-            </Link>
-            <Button variant="outline" asChild>
-              <Link 
-                href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-            </Button>
-            <SignInButton mode="modal" afterSignInUrl="/">
-              <Button variant="default" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
-                Sign In
-              </Button>
-            </SignInButton>
-          </nav>
+      {/* Mobile Dropdown */}
+      {menuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-brand-background shadow-lg flex flex-col items-center gap-4 py-6 animate-fade-in z-50">
+          <Button variant="default" size="nav" className="w-11/12">Features</Button>
+          <Button variant="default" size="nav" className="w-11/12">User guide</Button>
+          <Button variant="default" size="nav" className="w-11/12">Contact</Button>
+          <Button variant="secondary-alt" size="nav" className="w-11/12">Sign In</Button>
         </div>
       )}
-    </header>
+    </div>
   );
 } 
