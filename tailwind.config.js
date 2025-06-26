@@ -87,6 +87,7 @@ module.exports = {
         h1: ['64px', { lineHeight: '1.21', fontWeight: '800' }],
         'h1-mobile': ['48px', { lineHeight: '1.21', fontWeight: '800' }],
         h2: ['48px', { lineHeight: '50px', fontWeight: '800' }],
+        'h2-mobile': ['40px', { lineHeight: '1.21', fontWeight: '800' }],
         h3: ['36px', { lineHeight: '49px', fontWeight: '700' }],
         h4: ['24px', { lineHeight: '28px', fontWeight: '700' }],
         lead: ['20px', { lineHeight: '28px', fontWeight: '500' }],

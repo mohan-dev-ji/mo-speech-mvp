@@ -17,7 +17,7 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           <Button variant="default" size="nav">Features</Button>
-          <Button variant="default" size="nav">User guide</Button>
+          <Button variant="default" size="nav">User Guide</Button>
           <Button variant="default" size="nav">Contact</Button>
           <Button variant="secondary-alt" size="nav">Sign In</Button>
         </div>
