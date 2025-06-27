@@ -1,6 +1,7 @@
 "use client"; // Ensure this is a client-side component
 
-import { Button } from '../../components/ui/button';
+import React from 'react';
+import { Button } from '../../components/shared/ui/button';
 import { Play, ArrowLeft } from 'lucide-react';
 import { useRouter } from 'next/navigation'; 
 import { useEffect, useState } from 'react';
@@ -53,35 +54,37 @@ export default function PlaybackPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-white">
-      {pecs.length > 0 && (
-        <Image
-          src={`/pecs/${pecs[currentIndex]}`}
-          alt={pecs[currentIndex]}
-          width={800}
-          height={800}
-          className="max-w-full max-h-full w-auto h-auto"
-          style={{ maxWidth: '90vw', maxHeight: '90vh' }}
-        />
-      )}
+    <div className="bg-slate-300 px-7 py-[60px] min-h-screen">
+      <div className="bg-white rounded-lg p-8 flex flex-col items-center justify-center min-h-[calc(100vh-120px)]">
+        {pecs.length > 0 && (
+          <Image
+            src={`/pecs/${pecs[currentIndex]}`}
+            alt={pecs[currentIndex]}
+            width={800}
+            height={800}
+            className="max-w-full max-h-full w-auto h-auto mb-8"
+            style={{ maxWidth: '90vw', maxHeight: '70vh' }}
+          />
+        )}
 
-      <div className="flex space-x-4">
-        <Button
-          onClick={handleGoBack}
-          className="flex-1"
-          variant="outline"
-          size="icon"
-        >
-          <ArrowLeft className="h-4 w-4" />
-        </Button>
-        
-        <Button
-          onClick={handlePlayAgain}
-          className="flex-1 bg-green-600 hover:bg-green-700 text-white"
-          size="icon"
-        >
-          <Play className="h-4 w-4" />
-        </Button>
+        <div className="w-full max-w-[90vw] flex space-x-4">
+          <Button
+            onClick={handleGoBack}
+            className="flex-1 py-4 rounded-lg"
+            variant="outline"
+            size="lg"
+          >
+            <ArrowLeft className="h-5 w-5" />
+          </Button>
+          
+          <Button
+            onClick={handlePlayAgain}
+            className="flex-1 bg-green-600 hover:bg-green-700 text-white py-4 rounded-lg"
+            size="lg"
+          >
+            <Play className="h-5 w-5" />
+          </Button>
+        </div>
       </div>
     </div>
   );

@@ -1,29 +1,32 @@
-"use client"; 
+"use client";
 
 import React, { useState, useEffect } from 'react';
 import TopLine from '../../components/app/TopLine';
-import SearchBar from '../../components/app/SearchBar';
 import PecsGrid from '../../components/app/PecsGrid';
+import AppHeader from '../../components/app/AppHeader';
 import { useRouter } from 'next/navigation'; 
 
-function Search() {
+export default function HomePage() {
   const [pecs, setPecs] = useState([]);
   const [selectedPECs, setSelectedPECs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [isSpeechRecognitionActive, setIsSpeechRecognitionActive] = useState(false);
 
-  const router = useRouter();  
-
-  const handleClearTopLine = () => {
-    setSelectedPECs([]);
-  };
+  const router = useRouter(); 
 
   useEffect(() => {
     fetch('/api/pecs')
       .then((response) => response.json())
-      .then((data) => setPecs(data))
-      .catch((error) => console.error('Error fetching PECs:', error));
-      console.log(pecs);
-  }, [pecs]);
+      .then((data) => {
+        setPecs(data);
+        setIsLoading(false); // Data is now loaded
+      })
+      .catch((error) => {
+        console.error('Error fetching PECs:', error);
+        setIsLoading(false); // Even in case of error, stop loading
+      });
+  }, []);
 
   // Check for PECs in history state when component mounts
   useEffect(() => {
@@ -52,7 +55,7 @@ function Search() {
     };
   }, []);
 
-  // Add a useEffect to handle direct navigation to search page
+  // Add a useEffect to handle direct navigation to home page
   useEffect(() => {
     // Check if we're coming from the playback page
     const searchParams = new URLSearchParams(window.location.search);
@@ -64,7 +67,7 @@ function Search() {
         console.log('Setting PECs from URL:', pecs);
         setSelectedPECs(pecs);
         // Clear the URL parameter
-        window.history.replaceState({ pecs }, '', '/search');
+        window.history.replaceState({ pecs }, '', '/');
       } catch (error) {
         console.error('Error parsing PECs from URL:', error);
       }
@@ -75,27 +78,34 @@ function Search() {
   useEffect(() => {
     console.log('Selected PECs updated:', selectedPECs);
   }, [selectedPECs]);
-  
-  const handleAddToTopLine = (pecs) => {
-    console.log('handleAddToTopLine called with:', pecs);
-    // Ensure pecs is an array, even if a single string is passed
-    const pecsArray = Array.isArray(pecs) ? pecs : [pecs];
-    // Process each item in the array
-    pecsArray.forEach((pec) => {
-      if (typeof pec === 'string') {
-        // Check if the PEC ends with '.svg'
-        
-        if (!pec.endsWith('.svg')) {
-          pec = `${pec}.svg`;
-        }
-  
-        // Add to the selectedPECs state
-        setSelectedPECs((prevSelectedPECs) => [...prevSelectedPECs, pec]);
 
-      } else {
-        console.error('Invalid PEC type:', pec);
+  const handleClearTopLine = () => {
+    setSelectedPECs([]);
+  };
+  
+  const handleAddToTopLine = async (pec) => {
+    // If pec is an array, add all PECs at once
+    if (Array.isArray(pec)) {
+      setSelectedPECs(prevPECs => [...prevPECs, ...pec]);
+      // Only play audio if speech recognition is not active
+      if (!isSpeechRecognitionActive) {
+        for (const p of pec) {
+          const audio = new Audio(`/audio/${p.replace('.svg', '.mp3')}`);
+          await new Promise((resolve) => {
+            audio.onended = resolve;
+            audio.play();
+          });
+        }
       }
-    });
+    } else {
+      // If pec is a single string, add it normally
+      setSelectedPECs(prevPECs => [...prevPECs, pec]);
+      // Only play audio if speech recognition is not active
+      if (!isSpeechRecognitionActive) {
+        const audio = new Audio(`/audio/${pec.replace('.svg', '.mp3')}`);
+        audio.play();
+      }
+    }
   };
 
   const handlePlaySentence = () => {
@@ -112,36 +122,37 @@ function Search() {
     router.push(`/playback?pecs=${pecsString}`);
   };
 
-  const filteredPECs = searchQuery ? pecs.filter((pec) =>
-    pec.toLowerCase().includes(searchQuery.toLowerCase())
-  )
-  : [];
+  const filteredPECs = pecs.filter((pec) =>
+    pec.toLowerCase().startsWith(searchQuery.toLowerCase())
+  );
+
+  if (isLoading) {
+    return <div>Loading...</div>; // Show loading state until PECs are fetched
+  }
 
   return (
-    <>
+    <div className="bg-slate-300 px-7 py-[60px] min-h-screen">
+      <AppHeader />
       {/* Main Content */}
       <div>
-      <TopLine 
+        <TopLine 
           selectedPECs={selectedPECs}
           handleClearTopLine={handleClearTopLine}
           handlePlaySentence={handlePlaySentence}
-        />
-      {/* Search Bar */}
-      <SearchBar 
+          handleAddToTopLine={handleAddToTopLine}
           setSearchQuery={setSearchQuery}
           searchQuery={searchQuery}
           pecs={pecs}
-          handleAddToTopLine={handleAddToTopLine}
-      />
-      {/* PECs Grid */}
-      <PecsGrid 
+          isSpeechRecognitionActive={isSpeechRecognitionActive}
+          setIsSpeechRecognitionActive={setIsSpeechRecognitionActive}
+        />
+        {/* PECs Grid */}
+        <PecsGrid 
           handleAddToTopLine={handleAddToTopLine}
           filteredPECs={filteredPECs}
-      />
-      
+          pecs={pecs}
+        />      
       </div>
-    </>
-  )
-};
-
-export default Search; 
+    </div>
+  );
+} 
