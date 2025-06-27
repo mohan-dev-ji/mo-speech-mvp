@@ -12,7 +12,7 @@ export default function WhatIsMoSpeechSection() {
         {/* Heading */}
         <div className="flex flex-col gap-2 items-center text-center w-full">
           <h2 className="text-h2-mobile md:text-h2 text-brand-text">What is Mo Speech?</h2>
-          <p className="text-large text-brand-text-secondary max-w-2xl">Mo Speech is a free online resource that bridge's the gap between everyday life and AAC training.</p>
+          <p className="text-large text-brand-text-secondary max-w-2xl">Mo Speech is a free online resource that bridge&apos;s the gap between everyday life and AAC training.</p>
         </div>
         {/* Cards */}
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 w-full items-center justify-center">

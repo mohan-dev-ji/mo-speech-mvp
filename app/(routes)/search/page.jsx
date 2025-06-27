@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import TopLine from '../../components/app/TopLine';
-import SearchBar from '../../components/shared/SearchBar';
+import SearchBar from '../../components/app/SearchBar';
 import PecsGrid from '../../components/app/PecsGrid';
 import { useRouter } from 'next/navigation'; 
 
