@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import TopLine from '../../components/TopLine';
-import PecsGrid from '../../components/PecsGrid';
-import AppHeader from '../../components/AppHeader';
+import TopLine from '../../components/app/TopLine';
+import PecsGrid from '../../components/app/PecsGrid';
+import AppHeader from '../../components/app/AppHeader';
 import { useRouter } from 'next/navigation'; 
 
 export default function HomePage() {
@@ -131,7 +131,7 @@ export default function HomePage() {
   }
 
   return (
-    <>
+    <div className="bg-slate-300 px-7 py-[60px] min-h-screen">
       <AppHeader />
       {/* Main Content */}
       <div>
@@ -153,6 +153,6 @@ export default function HomePage() {
           pecs={pecs}
         />      
       </div>
-    </>
+    </div>
   );
 } 

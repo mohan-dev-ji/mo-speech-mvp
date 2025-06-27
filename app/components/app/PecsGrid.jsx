@@ -8,7 +8,7 @@ function PecsGrid({ filteredPECs, handleAddToTopLine }) {
       {filteredPECs.map((pec, index) => (
         <div 
         key={index} 
-        className="bg-white p-2 rounded-md border-4 border-gray-200"
+        className="bg-white p-2 rounded-md"
         onClick={() => handleAddToTopLine(pec)}
         >
           <Image 

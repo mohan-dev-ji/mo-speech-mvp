@@ -7,8 +7,8 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "./ui/alert-dialog";
-import { Button } from "./ui/button";
+} from "./alert-dialog";
+import { Button } from "../shared/ui/button";
 import { Play, X, Mic, Search } from "lucide-react";
 import Image from 'next/image';
 
@@ -149,7 +149,7 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSear
     <>
       <div>
         <div 
-          className="bg-white flex items-center justify-between px-4 py-4 rounded-md border-4 border-gray-200 mb-4 min-h-[120px]"
+          className="bg-white flex items-center justify-between px-4 py-4 rounded-md mb-4 min-h-[120px]"
           style={{ minHeight: '120px' }}
           onClick={handlePlaySentence} 
         >
@@ -171,30 +171,30 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSear
           <div className="flex justify-center space-x-4">
             <Button
               onClick={handlePlaySentence}
-              className="flex-1 bg-green-600 hover:bg-green-700 text-white"
-              size="icon"
+              className="flex-1 bg-green-600 hover:bg-green-700 text-white py-4 rounded-lg"
+              size="lg"
             >
-              <Play className="h-4 w-4" />
+              <Play className="h-5 w-5" />
             </Button>
             <Button
               onClick={(e) => {
                 e.stopPropagation();
                 handleClearTopLine();
               }}
-              className="flex-1"
+              className="flex-1 py-4 rounded-lg"
               variant="destructive"
-              size="icon"
+              size="lg"
             >
-              <X className="h-4 w-4" />
+              <X className="h-5 w-5" />
             </Button>
             <Button
               onClick={handleSpeechRecognition}
-              className={`flex-1 ${isListening ? 'animate-pulse bg-red-500 hover:bg-red-600 text-white' : ''}`}
+              className={`flex-1 py-4 rounded-lg ${isListening ? 'animate-pulse bg-red-500 hover:bg-red-600 text-white' : ''}`}
               variant={isListening ? "default" : "outline"}
-              size="icon"
+              size="lg"
               disabled={isListening}
             >
-              <Mic className="h-4 w-4" />
+              <Mic className="h-5 w-5" />
             </Button>
           </div>
           
@@ -206,7 +206,7 @@ function TopLine({ selectedPECs, handleClearTopLine, handlePlaySentence, setSear
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search symbols..."
-              className="w-full p-2 border border-gray-300 rounded-full shadow-sm pl-10 pr-10"
+              className="w-full p-2 border border-gray-300 rounded-full shadow-sm pl-10 pr-10 py-2"
             />
             {searchQuery && (
               <Button

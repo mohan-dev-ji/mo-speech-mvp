@@ -1,4 +1,4 @@
-import Card4 from "./Card4";
+import Card4 from "../cards/Card4";
 import HomeIcon from "../svgs/HomeIcon";
 import UsersIcon from "../svgs/UsersIcon";
 import EducatorsIcon from "../svgs/EducatorsIcon";

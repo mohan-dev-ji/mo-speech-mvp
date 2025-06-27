@@ -1,7 +1,7 @@
 import SearchIcon from "../svgs/SearchIcon";
 import ScanEyeIcon from "../svgs/ScanEyeIcon";
 import UtensilsIcon from "../svgs/UtensilsIcon";
-import Card1 from "./Card1";
+import Card1 from "../cards/Card1";
 
 export default function WhatIsMoSpeechSection() {
   return (

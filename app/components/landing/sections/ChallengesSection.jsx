@@ -1,4 +1,4 @@
-import Card2 from "./Card2";
+import Card2 from "../cards/Card2";
 import ShieldAlertIcon from "../svgs/ShieldAlertIcon";
 import ShieldCheckIcon from "../svgs/ShieldCheckIcon";
 

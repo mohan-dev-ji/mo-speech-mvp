@@ -1,4 +1,4 @@
-import Card5 from "./Card5";
+import Card5 from "../cards/Card5";
 import ObserveIcon from "../svgs/ObserveIcon";
 import SpeakIcon from "../svgs/SpeakIcon";
 import ModelIcon from "../svgs/ModelIcon";

@@ -1,4 +1,5 @@
-import { Button } from "../ui/button";
+import Link from 'next/link';
+import { Button } from "../../shared/ui/button";
 
 export default function FinalCtaSection() {
   return (
@@ -9,9 +10,11 @@ export default function FinalCtaSection() {
           <div className="text-h3 text-brand-text text-center mb-2">Ready to Try Mo Speech?</div>
           <div className="text-lead text-brand-tertiary text-center mb-9 w-full max-w-[504px]">Use the app in Chrome on any device</div>
           <div className="flex justify-center">
-          <Button size="xl" className="bg-[rgba(0,181,205,0.04)] border-2 border-[#0074cd] text-brand-text hover:text-white">
-          SIGN UP NOW
-        </Button>
+            <Link href="/app">
+              <Button size="xl" className="bg-[rgba(0,181,205,0.04)] border-2 border-[#0074cd] text-brand-text hover:text-white">
+                TRY MO SPEECH NOW
+              </Button>
+            </Link>
           </div>
         </div>
       </div>

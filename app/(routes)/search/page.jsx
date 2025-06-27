@@ -1,9 +1,9 @@
 "use client"; 
 
 import React, { useState, useEffect } from 'react';
-import TopLine from '../../components/TopLine';
-import SearchBar from '../../components/SearchBar';
-import PecsGrid from '../../components/PecsGrid';
+import TopLine from '../../components/app/TopLine';
+import SearchBar from '../../components/shared/SearchBar';
+import PecsGrid from '../../components/app/PecsGrid';
 import { useRouter } from 'next/navigation'; 
 
 function Search() {

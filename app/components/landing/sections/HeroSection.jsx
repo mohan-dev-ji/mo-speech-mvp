@@ -1,4 +1,4 @@
-import { Button } from "../ui/button";
+import { Button } from "../../shared/ui/button";
 import UserCheckIcon from "../svgs/UserCheckIcon";
 import PointerIcon from "../svgs/PointerIcon";
 import EarIcon from "../svgs/EarIcon";

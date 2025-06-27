@@ -1,9 +1,9 @@
 import Logo from "../Logo";
 import Link from "next/link";
-import IconFacebook from "../svgs/IconFacebook";
-import IconInstagram from "../svgs/IconInstagram";
-import IconLinkedIn from "../svgs/IconLinkedIn";
-import IconTikTok from "../svgs/IconTikTok";
+import IconFacebook from "../../landing/svgs/IconFacebook";
+import IconInstagram from "../../landing/svgs/IconInstagram";
+import IconLinkedIn from "../../landing/svgs/IconLinkedIn";
+import IconTikTok from "../../landing/svgs/IconTikTok";
 
 const navLinks = [
   { name: "About", href: "/about" },

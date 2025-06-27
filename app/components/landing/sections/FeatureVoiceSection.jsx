@@ -1,5 +1,5 @@
 import MicrophoneIcon from "../svgs/MicrophoneIcon";
-import Card3 from "./Card3";
+import Card3 from "../cards/Card3";
 import Lottie from "lottie-react";
 import VoiceFeature from "../lottie/VoiceFeature_SM.json";
 import { useInView } from "react-intersection-observer";

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Logo from '../Logo';
-import { Button } from '../ui/button';
+import { Button } from './button';
 
 const HamburgerIcon = (props) => (
   <svg width="38" height="26" viewBox="0 0 38 26" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
@@ -13,13 +14,23 @@ export default function Navbar() {
   return (
     <div className="relative w-full shadow-lg z-50">
       <div className="mx-auto flex h-24 max-w-[1080px] items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Logo />
+        <Link href="/app" className="hover:opacity-80 transition-opacity">
+          <Logo />
+        </Link>
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <Button variant="default" size="nav">Features</Button>
-          <Button variant="default" size="nav">User Guide</Button>
-          <Button variant="default" size="nav">Contact</Button>
-          <Button variant="secondary-alt" size="nav">Sign In</Button>
+          <Link href="/#features">
+            <Button variant="default" size="nav">Features</Button>
+          </Link>
+          <Link href="/guide">
+            <Button variant="default" size="nav">User Guide</Button>
+          </Link>
+          <Link href="/contact">
+            <Button variant="default" size="nav">Contact</Button>
+          </Link>
+          <Link href="/app">
+            <Button variant="secondary-alt" size="nav">Try MoSpeech</Button>
+          </Link>
         </div>
         {/* Hamburger for mobile */}
         <button
@@ -33,10 +44,18 @@ export default function Navbar() {
       {/* Mobile Dropdown */}
       {menuOpen && (
         <div className="md:hidden absolute top-full left-0 w-full bg-brand-background shadow-lg flex flex-col items-center gap-4 py-6 animate-fade-in z-50">
-          <Button variant="default" size="nav" className="w-11/12">Features</Button>
-          <Button variant="default" size="nav" className="w-11/12">User guide</Button>
-          <Button variant="default" size="nav" className="w-11/12">Contact</Button>
-          <Button variant="secondary-alt" size="nav" className="w-11/12">Sign In</Button>
+          <Link href="/#features" className="w-11/12">
+            <Button variant="default" size="nav" className="w-full">Features</Button>
+          </Link>
+          <Link href="/guide" className="w-11/12">
+            <Button variant="default" size="nav" className="w-full">User Guide</Button>
+          </Link>
+          <Link href="/contact" className="w-11/12">
+            <Button variant="default" size="nav" className="w-full">Contact</Button>
+          </Link>
+          <Link href="/app" className="w-11/12">
+            <Button variant="secondary-alt" size="nav" className="w-full">Sign In</Button>
+          </Link>
         </div>
       )}
     </div>
