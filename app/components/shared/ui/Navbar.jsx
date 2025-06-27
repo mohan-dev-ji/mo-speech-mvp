@@ -41,7 +41,7 @@ export default function Navbar() {
   return (
     <div className="sticky top-0 relative w-full shadow-lg z-50 bg-brand-background/80 backdrop-blur-md border-b border-brand-line/20">
       <div className="mx-auto flex h-24 max-w-[1080px] items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/app" className="hover:opacity-80 transition-opacity">
+        <Link href="/" className="hover:opacity-80 transition-opacity">
           <Logo />
         </Link>
         {/* Desktop Nav */}
