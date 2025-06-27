@@ -1,3 +1,7 @@
+"use client";
+
+import { useAuth, useClerk } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 import { Button } from "../../shared/ui/button";
 import UserCheckIcon from "../svgs/UserCheckIcon";
 import PointerIcon from "../svgs/PointerIcon";
@@ -6,6 +10,24 @@ import EarIcon from "../svgs/EarIcon";
 const imgChromeImg = "/images/chrome-img.png";
 
 export default function HeroSection() {
+  const { isSignedIn } = useAuth();
+  const { openSignIn } = useClerk();
+  const router = useRouter();
+
+  const handleAction = () => {
+    if (isSignedIn) {
+      router.push("/app");
+    }
+    // If not signed in, the handleSignIn will handle the sign in flow
+  };
+
+  const handleSignIn = () => {
+    console.log("Opening sign in from hero");
+    openSignIn({
+      redirectUrl: "/app"
+    });
+  };
+
   return (
     <section className="w-full flex flex-col items-center px-4">
       <div className="w-full h-px bg-brand-line" />
@@ -40,9 +62,23 @@ export default function HeroSection() {
           </div>
         </div>
         {/* Large Button */}
-        <Button size="xl" className="bg-[rgba(0,181,205,0.04)] border-2 border-[#0074cd] text-brand-text hover:text-white">
-          SIGN UP NOW
-        </Button>
+        {isSignedIn ? (
+          <Button 
+            size="xl" 
+            className="bg-[rgba(0,181,205,0.04)] border-2 border-[#0074cd] text-brand-text hover:text-white"
+            onClick={handleAction}
+          >
+            Use Mo Speech
+          </Button>
+        ) : (
+          <Button 
+            size="xl" 
+            className="bg-[rgba(0,181,205,0.04)] border-2 border-[#0074cd] text-brand-text hover:text-white"
+            onClick={handleSignIn}
+          >
+            Get Started
+          </Button>
+        )}
         {/* Free Section */}
         <div className="flex flex-col gap-2 items-center w-full">
           <div className="bg-center bg-cover bg-no-repeat size-[50px]" style={{ backgroundImage: `url('${imgChromeImg}')` }} />

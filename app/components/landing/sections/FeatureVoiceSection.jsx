@@ -37,7 +37,7 @@ export default function FeatureVoiceSection() {
   }, [shouldPlay]);
 
   return (
-    <section className="relative w-full flex flex-col items-center px-8 overflow-hidden">
+    <section id="features" className="relative w-full flex flex-col items-center px-8 scroll-mt-24">
         <div className="w-full h-px bg-brand-line" />
       {/* Animated background ellipses */}
       <div className="absolute left-0 top-[-100px] w-[500px] h-[500px] z-0 animate-ellipse-x blur-3xl opacity-40 pointer-events-none" style={{background: "radial-gradient(circle at 50% 50%, #eba91c33 100%, transparent 80%)"}} />

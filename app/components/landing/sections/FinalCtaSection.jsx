@@ -1,7 +1,28 @@
-import Link from 'next/link';
+"use client";
+
+import { useAuth, useClerk } from "@clerk/nextjs";
+import { useRouter } from "next/navigation";
 import { Button } from "../../shared/ui/button";
 
 export default function FinalCtaSection() {
+  const { isSignedIn } = useAuth();
+  const { openSignIn } = useClerk();
+  const router = useRouter();
+
+  const handleAction = () => {
+    if (isSignedIn) {
+      router.push("/app");
+    }
+    // If not signed in, the handleSignIn will handle the sign in flow
+  };
+
+  const handleSignIn = () => {
+    console.log("Opening sign in from CTA");
+    openSignIn({
+      redirectUrl: "/app"
+    });
+  };
+
   return (
     <section className="relative w-full flex flex-col items-center px-8 overflow-hidden">
       <div className="absolute border border-brand-line border-solid inset-0 pointer-events-none rounded-none" />
@@ -10,11 +31,23 @@ export default function FinalCtaSection() {
           <div className="text-h3 text-brand-text text-center mb-2">Ready to Try Mo Speech?</div>
           <div className="text-lead text-brand-tertiary text-center mb-9 w-full max-w-[504px]">Use the app in Chrome on any device</div>
           <div className="flex justify-center">
-            <Link href="/app">
-              <Button size="xl" className="bg-[rgba(0,181,205,0.04)] border-2 border-[#0074cd] text-brand-text hover:text-white">
-                TRY MO SPEECH NOW
+            {isSignedIn ? (
+              <Button 
+                size="xl" 
+                className="bg-[rgba(0,181,205,0.04)] border-2 border-[#0074cd] text-brand-text hover:text-white"
+                onClick={handleAction}
+              >
+                Use Mo Speech
               </Button>
-            </Link>
+            ) : (
+              <Button 
+                size="xl" 
+                className="bg-[rgba(0,181,205,0.04)] border-2 border-[#0074cd] text-brand-text hover:text-white"
+                onClick={handleSignIn}
+              >
+                Get Started
+              </Button>
+            )}
           </div>
         </div>
       </div>
