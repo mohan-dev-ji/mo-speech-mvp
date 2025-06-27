@@ -1,6 +1,6 @@
 const Card5 = ({ icon, title, description, iconBg, titleColor, className, hoverShadow }) => (
   <div
-    className={`bg-brand-bg-alt-secondary border border-brand-line rounded-2xl flex flex-col items-center px-6 md:px-10 py-10 md:py-[60px] w-full mx-auto ${className} transition-transform duration-200 hover:-translate-y-2`}
+    className={`bg-brand-bg-alt-secondary border border-brand-line rounded-2xl flex flex-col items-center px-6 md:px-10 py-10 md:py-[60px] flex-1 mx-auto ${className} transition-transform duration-200 hover:-translate-y-2`}
     style={{ boxShadow: 'none' }}
     onMouseEnter={e => e.currentTarget.style.boxShadow = '0 8px 32px 0 rgba(0,116,205,0.32)'}
     onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
