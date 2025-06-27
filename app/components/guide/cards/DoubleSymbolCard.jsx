@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export default function DoubleSymbolCard({ leftText, symbols = [], rightText }) {
   return (
@@ -11,7 +12,7 @@ export default function DoubleSymbolCard({ leftText, symbols = [], rightText }) 
         )}
         {symbols.map((symbol, idx) => (
           <div key={idx} className="bg-[#e0e0e0] rounded-[7.5px] flex items-center justify-center w-28 h-28 relative overflow-hidden">
-            <img src={symbol} alt="symbol" className="w-full h-full object-contain" />
+            <Image src={symbol} alt="symbol" width={112} height={112} className="w-full h-full object-contain" />
           </div>
         ))}
         {rightText && (

@@ -22,7 +22,7 @@ export default function FullSentencesSection() {
       {/* Heading */}
       <div className="flex flex-col gap-2 items-center text-center w-full">
         <h2 className="text-h3-mobile md:text-h3 text-brand-tertiary">Modelling Full Sentences</h2>
-        <p className="text-large text-brand-text-secondary max-w-2xl">You don’t need to model every word. Focus on the Modelling Full Sentencesimportant ones:</p>
+        <p className="text-large text-brand-text-secondary max-w-2xl">Increase modelling key words to whole sentences.</p>
       </div>
       {/* Cards Row */}
       <div className="flex flex-col gap-8 w-full max-w-[1080px] mx-auto items-center justify-center">

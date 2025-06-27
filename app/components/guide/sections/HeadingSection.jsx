@@ -8,7 +8,7 @@ export default function GuidePageContent() {
         {/* Heading */}
         <div className="flex flex-col gap-2 items-center text-center w-full">
           <h1 className="text-h1-mobile md:text-h1 text-brand-text font-extrabold tracking-tight">User Guide</h1>
-          <p className="text-lead text-brand-text-secondary max-w-2xl">Whether you're a parent, therapist, or educator, this guide will help you get started with using the app.</p>
+          <p className="text-lead text-brand-text-secondary max-w-2xl">Whether you&apos;re a parent, therapist, or educator, this guide will help you get started with using the app.</p>
         </div>
       </div>
     </section>
