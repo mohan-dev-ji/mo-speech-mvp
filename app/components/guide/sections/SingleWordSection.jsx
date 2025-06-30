@@ -8,12 +8,12 @@ const downSymbol = "/pecs/down.svg";
 
 export default function SingleWordSection() {
   return (
-    <section className="w-full bg-brand-bg-alt-secondary flex flex-col items-center px-4">
+    <section className="relative w-full flex flex-col items-center px-8 overflow-hidden">
       <div className="w-full h-px bg-brand-line" />
-      <div className="flex flex-col items-center max-w-[1080px] mx-auto gap-12 py-16">
+      <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
         {/* Heading */}
         <div className="flex flex-col gap-2 items-center text-center w-full">
-          <h2 className="text-h2-mobile md:text-h2 text-brand-tertiary font-extrabold tracking-tight">Start with Single Word Modelling</h2>
+          <h2 className="text-h2-mobile md:text-h2 text-brand-text font-extrabold tracking-tight">Start with Single Word Modelling</h2>
           <p className="text-large text-brand-text-secondary max-w-2xl">Show how to use words in real life by speaking and pointing to them on the screen.</p>
         </div>
         {/* Cards Row */}

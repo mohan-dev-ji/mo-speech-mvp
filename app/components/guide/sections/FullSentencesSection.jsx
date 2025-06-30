@@ -16,12 +16,12 @@ const helpSymbol = "/pecs/help.svg";
 
 export default function FullSentencesSection() {
   return (
-    <section className="w-full bg-brand-bg-alt-secondary flex flex-col items-center px-4">
-    <div className="w-full h-px bg-brand-line" />
-    <div className="flex flex-col items-center max-w-[1080px] mx-auto gap-12 py-16">
+    <section className="relative w-full flex flex-col items-center px-8 overflow-hidden">
+      <div className="w-full h-px bg-brand-line" />
+      <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
       {/* Heading */}
       <div className="flex flex-col gap-2 items-center text-center w-full">
-        <h2 className="text-h3-mobile md:text-h3 text-brand-tertiary">Modelling Full Sentences</h2>
+        <h2 className="text-h3-mobile md:text-h3 text-brand-text">Modelling Full Sentences</h2>
         <p className="text-large text-brand-text-secondary max-w-2xl">Increase modelling key words to whole sentences.</p>
       </div>
       {/* Cards Row */}

@@ -21,13 +21,13 @@ const downSymbol = "/pecs/down.svg";
 
 export default function KeyWordsSection() {
   return (
-    <section className="w-full bg-brand-bg-alt-secondary flex flex-col items-center px-4">
+    <section className="relative w-full flex flex-col items-center px-8 overflow-hidden">
       <div className="w-full h-px bg-brand-line" />
-      <div className="flex flex-col items-center max-w-[1080px] mx-auto gap-12 py-16">
+      <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
         {/* Heading */}
         <div className="flex flex-col gap-2 items-center text-center w-full">
           <h2 className="text-h3-mobile md:text-h3 text-brand-text">Model Two Words in a Sentence</h2>
-          <p className="text-large text-brand-text-secondary max-w-2xl">You don’t need to model every word. Focus on the important ones:</p>
+          <p className="text-large text-brand-text-secondary max-w-2xl">You don&apos;t need to model every word. Focus on the important ones:</p>
         </div>
         {/* Cards Row */}
         <div className="flex flex-col gap-8 w-full max-w-[1080px] mx-auto items-center justify-center">

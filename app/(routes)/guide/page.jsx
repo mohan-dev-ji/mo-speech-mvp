@@ -14,9 +14,9 @@ import FinalCtaSection from '@/app/components/landing/sections/FinalCtaSection';
 
 export default function GuidePage() {
   return (
-    <div className="min-h-screen flex flex-col bg-brand-background w-full">
+    <div className="min-h-screen bg-brand-background flex flex-col">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 flex flex-col items-center w-full">
         <HeadingSection />
         <SingleWordSection />
         <AdviceSection />
