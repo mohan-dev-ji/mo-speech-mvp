@@ -12,7 +12,7 @@ export default function ContactFormSection() {
             We Value Your Feedback
           </h2>
           <p className="text-[18px] font-semibold text-brand-text-secondary leading-[28px] max-w-[596px]">
-            Help us improve Mo Speech by sharing your experiences, suggestions, or by reporting any issues you've encountered.
+            Help us improve Mo Speech by sharing your experiences, suggestions, or by reporting any issues you&apos;ve encountered.
           </p>
         </div>
         <form className="w-full flex flex-col gap-6 items-center">
