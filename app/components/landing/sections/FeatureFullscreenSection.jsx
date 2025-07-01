@@ -19,7 +19,7 @@ function useIsMobile(breakpoint = 768) {
   return isMobile;
 }
 
-export default function FeatureVoiceSection() {
+export default function FeatureFullscreenSection() {
   const { ref, inView } = useInView({ triggerOnce: false, threshold: 0.2 });
   const isMobile = useIsMobile();
   const [hovered, setHovered] = useState(false);
@@ -37,11 +37,11 @@ export default function FeatureVoiceSection() {
   }, [shouldPlay]);
 
   return (
-    <section className="relative w-full flex flex-col items-center px-8 overflow-hidden">
+    <section className="relative w-full flex flex-col items-center px-4 md:px-8 overflow-hidden">
       <div className="w-full h-px bg-brand-line" />
       {/* Animated background ellipses */}
-      <div className="absolute left-0 top-[-100px] w-[500px] h-[500px] z-0 animate-ellipse-x blur-3xl opacity-40 pointer-events-none" style={{background: "radial-gradient(circle at 50% 50%, #0074CD33 100%, transparent 80%)"}} />
-      <div className="absolute left-[10%] bottom-[-120px] w-[400px] h-[400px] z-0 animate-ellipse-y blur-3xl opacity-30 pointer-events-none" style={{background: "radial-gradient(circle at 50% 50%, #0074CD33 100%, transparent 80%)"}} />
+      <div className="absolute left-0 top-[-100px] w-[300px] md:w-[500px] h-[300px] md:h-[500px] z-0 animate-ellipse-x blur-3xl opacity-40 pointer-events-none overflow-hidden" style={{background: "radial-gradient(circle at 50% 50%, #00b5cd33 100%, transparent 80%)"}} />
+      <div className="absolute left-[5%] md:left-[10%] bottom-[-120px] w-[250px] md:w-[400px] h-[250px] md:h-[400px] z-0 animate-ellipse-y blur-3xl opacity-30 pointer-events-none overflow-hidden" style={{background: "radial-gradient(circle at 50% 50%, #00b5cd33 100%, transparent 80%)"}} />
       <div className="relative z-10 flex flex-col-reverse md:flex-row items-center justify-center w-full max-w-5xl py-16 gap-x-8">
         {/* Lottie placeholder */}
         <div
@@ -59,19 +59,19 @@ export default function FeatureVoiceSection() {
         </div>
         {/* Card3 */}
         <Card3
-          icon={<div className="bg-brand-icon-bg-blue rounded-full flex items-center justify-center w-[80px] h-[80px]"><FullscreenIcon width={50} height={50} color="#eba91c" /></div>}
-          title="Full-Screen Display"
-          description="Isolating and enlarging Images improves visual focus."
+          icon={<div className="bg-brand-icon-bg-green rounded-full flex items-center justify-center w-[80px] h-[80px]"><FullscreenIcon width={50} height={50} color="#00b5cd" /></div>}
+          title="Fullscreen Mode"
+          description="Switch to fullscreen for distraction-free AAC modelling sessions."
         />
       </div>
       <style jsx>{`
         @keyframes ellipse-x {
           0%, 100% { transform: translateX(0) translateY(0); opacity: 0; }
-          50% { transform: translateX(-400px) translateY(40px); opacity: 0.8; }
+          50% { transform: translateX(-200px) translateY(40px); opacity: 0.8; }
         }
         @keyframes ellipse-y {
-          0%, 100% { transform: translateX(20) translateY(0); opacity: 0; }
-          50% { transform: translateX(60px) translateY(-70px); opacity: 0.8; }
+          0%, 100% { transform: translateX(20px) translateY(0); opacity: 0; }
+          50% { transform: translateX(40px) translateY(-50px); opacity: 0.8; }
         }
         .animate-ellipse-x { animation: ellipse-x 12s ease-in-out infinite alternate; }
         .animate-ellipse-y { animation: ellipse-y 14s ease-in-out infinite alternate; }

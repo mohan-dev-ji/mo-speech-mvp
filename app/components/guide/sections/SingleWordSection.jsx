@@ -8,7 +8,7 @@ const downSymbol = "/pecs/down.svg";
 
 export default function SingleWordSection() {
   return (
-    <section className="relative w-full flex flex-col items-center px-8 overflow-hidden">
+    <section className="relative w-full flex flex-col items-center px-4 md:px-8 overflow-hidden">
       <div className="w-full h-px bg-brand-line" />
       <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
         {/* Heading */}
@@ -20,7 +20,7 @@ export default function SingleWordSection() {
         <div className="flex flex-col gap-8 w-full max-w-[1080px] mx-auto items-center justify-center">
           <SingleWordCard leftText="let's" symbol={goSymbol} />
           <SingleWordCard leftText="You want" symbol={moreSymbol} />
-          <SingleWordCard leftText="Put it" symbol={downSymbol} rightText="down" />
+          <SingleWordCard leftText="Put it" symbol={downSymbol} />
         </div>
       </div>
     </section>

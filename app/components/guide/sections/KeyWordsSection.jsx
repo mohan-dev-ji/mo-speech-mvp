@@ -21,7 +21,7 @@ const downSymbol = "/pecs/down.svg";
 
 export default function KeyWordsSection() {
   return (
-    <section className="relative w-full flex flex-col items-center px-8 overflow-hidden">
+    <section className="relative w-full flex flex-col items-center px-4 md:px-8 overflow-hidden">
       <div className="w-full h-px bg-brand-line" />
       <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
         {/* Heading */}
@@ -33,8 +33,8 @@ export default function KeyWordsSection() {
         <div className="flex flex-col gap-8 w-full max-w-[1080px] mx-auto items-center justify-center">
           <DoubleSymbolCard leftText="can" symbols={[weSymbol, playSymbol]} rightText="football" />
          <DoubleSymbolCard leftText="is" symbols={[thatSymbol, goodSymbol]} />
-         <DoubleSymbolCard leftText="do you" symbols={[needSymbol, helpSymbol]} />
-         <DoubleSymbolCard leftText="put" symbols={[putSymbol, itSymbol]} rightText="here" />
+         <DoubleSymbolCard leftText="You" symbols={[needSymbol, helpSymbol]} />
+         <DoubleSymbolCard symbols={[putSymbol, itSymbol]} rightText="here" />
         </div>
       </div>
     </section>

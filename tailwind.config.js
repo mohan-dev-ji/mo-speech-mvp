@@ -81,7 +81,7 @@ module.exports = {
         }
       },
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
+        sans: ["Manrope", "sans-serif"],
       },
       fontSize: {
         h1: ['64px', { lineHeight: '1.21', fontWeight: '800' }],

@@ -1,3 +1,4 @@
+import React from "react";
 import SearchIcon from "../svgs/SearchIcon";
 import ScanEyeIcon from "../svgs/ScanEyeIcon";
 import UtensilsIcon from "../svgs/UtensilsIcon";
@@ -5,17 +6,17 @@ import Card1 from "../cards/Card1";
 
 export default function WhatIsMoSpeechSection() {
   return (
-    <section id="about" className="relative w-full bg-brand-background px-4 scroll-mt-24">
+    <section id="about" className="relative w-full bg-brand-background px-4 md:px-8 scroll-mt-24">
       <div className="w-full h-px bg-brand-line" />
       <div className="absolute border border-[rgba(224,224,224,0.01)] border-solid inset-0 pointer-events-none rounded-none" />
-      <div className="flex flex-col items-center max-w-[1044px] mx-auto gap-12 py-16">
+      <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
         {/* Heading */}
         <div className="flex flex-col gap-2 items-center text-center w-full">
-          <h2 className="text-h2-mobile md:text-h2 text-brand-text">What is Mo Speech?</h2>
-          <p className="text-large text-brand-text-secondary max-w-2xl">Mo Speech is a free online resource that bridge&apos;s the gap between everyday life and AAC training.</p>
+          <h2 className="title-h2 text-brand-text font-extrabold tracking-tight">What is Mo Speech?</h2>
+          <p className="text-large text-brand-text-secondary max-w-2xl">A free, web-based tool designed to make AAC modelling faster and easier for everyone.</p>
         </div>
         {/* Cards */}
-        <div className="flex flex-col md:flex-row gap-8 md:gap-12 w-full items-center justify-center">
+        <div className="flex flex-col gap-8 w-full max-w-[1080px] mx-auto items-center justify-center mt-12">
           <Card1
             icon={<div className="bg-brand-icon-bg-blue rounded-full flex items-center justify-center w-[55px] h-[55px]"><SearchIcon className="w-[22px] h-[22px]" /></div>}
             title="Search for Symbols"

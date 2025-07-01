@@ -37,7 +37,7 @@ const socialCards = [
 
 export default function SocialMediaSection() {
   return (
-    <section className="w-full flex flex-col items-center py-16 border-b border-brand-line/5">
+    <section className="w-full flex flex-col items-center px-4 md:px-8 py-16 border-b border-brand-line/5">
       <div className="w-full max-w-[1080px] flex flex-col items-center gap-4">
         <h3 className="text-[36px] font-bold text-brand-text text-center tracking-[-0.216px] leading-[49px] mb-4">
           Connect with us on social media

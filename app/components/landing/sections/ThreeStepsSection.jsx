@@ -1,38 +1,41 @@
+import React from "react";
 import Card5 from "../cards/Card5";
-import ObserveIcon from "../svgs/ObserveIcon";
 import SpeakIcon from "../svgs/SpeakIcon";
-import ModelIcon from "../svgs/ModelIcon";
+import SearchIcon from "../svgs/SearchIcon";
+import FullscreenIcon from "../svgs/FullscreenIcon";
 
 export default function ThreeStepsSection() {
   return (
-    <section className="relative w-full flex flex-col items-center px-8 overflow-hidden">
+    <section className="relative w-full flex flex-col items-center px-4 md:px-8 overflow-hidden">
       <div className="w-full h-px bg-brand-line" />
       <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
-        <div className="text-h3 text-brand-text text-center mb-8">
-          3 Simple Steps to Effective AAC Modelling
+        {/* Heading */}
+        <div className="flex flex-col gap-2 items-center text-center w-full">
+          <h2 className="text-h2-mobile md:text-h2 text-brand-text font-extrabold tracking-tight">Three Simple Steps</h2>
+          <p className="text-large text-brand-text-secondary max-w-2xl">Get started with Mo Speech in just three easy steps.</p>
         </div>
-        <div className="flex flex-col gap-8 w-full items-center justify-center flex-wrap">
+        {/* Cards */}
+        <div className="flex flex-col md:flex-row gap-8 w-full max-w-[1080px] mx-auto items-center justify-center mt-12">
           <Card5
-            icon={<ObserveIcon style={{ width: 50, height: 50 }} />}
-            iconBg="bg-brand-icon-bg-green"
-            title="Observe"
-            description="What your child is doing or interested in"
+            icon={<SpeakIcon className="w-[50px] h-[50px]" />}
+            title="1. Speak or Type"
+            description="Use voice recognition or type to find the symbols you need instantly."
+            step="1"
           />
           <Card5
-            icon={<SpeakIcon style={{ width: 50, height: 50 }} />}
-            iconBg="bg-brand-icon-bg-yellow"
-            title="Speak"
-            description="Speak naturally and show matching symbol"
+            icon={<SearchIcon className="w-[50px] h-[50px]" />}
+            title="2. Find Symbols"
+            description="Browse through relevant PECS symbols without endless scrolling."
+            step="2"
           />
           <Card5
-            icon={<ModelIcon style={{ width: 50, height: 50 }} />}
-            iconBg="bg-brand-icon-bg-blue"
-            title="Model"
-            description="Focus on key words and not full sentences"
+            icon={<FullscreenIcon className="w-[50px] h-[50px]" />}
+            title="3. Model Communication"
+            description="Use fullscreen mode for distraction-free AAC modelling sessions."
+            step="3"
           />
         </div>
       </div>
-
     </section>
   );
 } 

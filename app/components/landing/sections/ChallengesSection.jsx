@@ -1,19 +1,16 @@
+import React from "react";
 import Card2 from "../cards/Card2";
 import ShieldAlertIcon from "../svgs/ShieldAlertIcon";
 import ShieldCheckIcon from "../svgs/ShieldCheckIcon";
 
 export default function ChallengesSection() {
   return (
-    <section className="w-full flex flex-col items-center px-8">
-        <div className="w-full h-px bg-brand-line" />
-      <div className="w-full max-w-5xl flex flex-col items-center gap-12 py-16">
+    <section className="w-full flex flex-col items-center px-4 md:px-8">
+      <div className="w-full h-px bg-brand-line" />
+      <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
         <div className="flex flex-col items-center gap-2 text-center w-full">
-          <h3 className="text-[36px] font-bold text-[#e0e0e0] leading-[49px] tracking-[-0.216px]">
-            How Mo Speech Makes It Easier?
-          </h3>
-          <p className="text-[18px] font-semibold text-[rgba(224,224,224,0.7)] leading-[28px]">
-            Mo Speech removes the barrier of slow symbol navigation.
-          </p>
+          <h2 className="text-h2-mobile md:text-h2 text-brand-text font-extrabold tracking-tight">Common Challenges</h2>
+          <p className="text-large text-brand-text-secondary max-w-2xl">AAC modelling can be challenging. Here are some common issues and solutions.</p>
         </div>
         <div className="flex flex-col md:flex-row gap-8 w-full items-center justify-center">
           <Card2
