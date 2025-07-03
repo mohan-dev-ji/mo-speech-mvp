@@ -84,20 +84,23 @@ module.exports = {
       },
       fontSize: {
         h1: ['64px', { lineHeight: '70px', fontWeight: '600' }], // Manrope-styles/h1
-        'h1-mobile': ['48px', { lineHeight: '1.21', fontWeight: '800' }],
-        h2: ['48px', { lineHeight: '50px', fontWeight: '800' }], // Manrope-styles/h2
-        'h2-mobile': ['40px', { lineHeight: '1.21', fontWeight: '800' }],
-        h3: ['36px', { lineHeight: '49px', fontWeight: '700' }], // Manrope-styles/h3
-        'h3-mobile': ['32px', { lineHeight: '1.21', fontWeight: '800' }],
-        h4: ['24px', { lineHeight: '28px', fontWeight: '700' }], // Manrope-styles/h4
+        'h1-mobile': ['48px', { lineHeight: '1.21', fontWeight: '600' }],
+        h2: ['48px', { lineHeight: '50px', fontWeight: '600' }], // Manrope-styles/h2
+        'h2-mobile': ['40px', { lineHeight: '1.21', fontWeight: '600' }],
+        h3: ['36px', { lineHeight: '49px', fontWeight: '600' }], // Manrope-styles/h3
+        'h3-mobile': ['32px', { lineHeight: '1.21', fontWeight: '600' }],
+        h4: ['24px', { lineHeight: '28px', fontWeight: '600' }], // Manrope-styles/h4
         lead: ['20px', { lineHeight: '28px', fontWeight: '500' }],
         large: ['18px', { lineHeight: '28px', fontWeight: '500' }],
         p: ['16px', { lineHeight: '28px', fontWeight: '400' }], // Manrope-styles/p
-        'p-bold': ['16px', { lineHeight: '28px', fontWeight: '700' }], // Manrope-styles/p-bold
-        'p-ui': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+        'p-bold': ['16px', { lineHeight: '28px', fontWeight: '600' }], // Manrope-styles/p-bold
+        'p-ui': ['14px', { lineHeight: '24px', fontWeight: '400' }],
       },
       spacing: {
         'section-y': '64px', // Roundness and Spacing/Section-y-padding
+        'section-y-mobile': '48px', // Roundness and Spacing/Section-y-padding-mobile
+        'section-x': '32px', // Roundness and Spacing/Section-y-padding
+        'section-x-mobile': '16px', // Roundness and Spacing/Section-y-padding-mobile-2
         'card-x': '36px', // Roundness and Spacing/Card-x-padding
         'card-y': '36px', // Roundness and Spacing/Card-y-padding
         'between-cards': '48px', // Roundness and Spacing/Space-between-cards
@@ -106,6 +109,9 @@ module.exports = {
         'container-width': '1080px', // Roundness and Spacing/Container-width
         'divider-width': '2px', // Stroke/Divider Width
         'line-width': '2px', // Roundness and Spacing/Line-width
+      },
+      borderWidth: {
+        'line-width': 'var(--line-width)',
       },
     }
   },

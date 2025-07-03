@@ -6,7 +6,6 @@ import { Button } from "../../shared/ui/button";
 import UserCheckIcon from "../svgs/UserCheckIcon";
 import PointerIcon from "../svgs/PointerIcon";
 import EarIcon from "../svgs/EarIcon";
-import Image from "next/image";
 
 const imgChromeImg = "/images/chrome-img.png";
 
@@ -40,6 +39,27 @@ export default function HeroSection() {
           </p>
         </div>
 
+
+
+        
+        {/* Icons Row */}
+        <div className="flex flex-col md:flex-row gap-between-icon items-center justify-center">
+          {/* User Check Icon */}
+          <div className="bg-brand-card flex items-center justify-center p-card-x rounded-2xl relative size-[161px]">
+            <div className="absolute inset-0 border-2 border-brand-line rounded-2xl pointer-events-none" />
+            <UserCheckIcon className="w-[100px] h-[100px]" />
+          </div>
+          {/* Pointer Icon */}
+          <div className="bg-brand-card flex items-center justify-center p-card-x rounded-2xl relative size-[161px]">
+            <div className="absolute inset-0 border-2 border-brand-line rounded-2xl pointer-events-none" />
+            <PointerIcon className="w-[104px] h-[104px]" />
+          </div>
+          {/* Ear Icon */}
+          <div className="bg-brand-card flex items-center justify-center p-card-x rounded-2xl relative size-[161px]">
+            <div className="absolute inset-0 border-2 border-brand-line rounded-2xl pointer-events-none" />
+            <EarIcon className="w-[100px] h-[100px]" />
+          </div>
+        </div>
         {/* Large Button */}
         <div className="flex flex-row gap-2.5 items-center justify-center px-5 py-2.5 relative">
           <div className="absolute inset-0 pointer-events-none" />
@@ -61,16 +81,6 @@ export default function HeroSection() {
             </Button>
           )}
         </div>
-        {/* Mo Speech Desktop Image */}
-        <Image
-          src="/images/mo-speech-desktop.png"
-          alt="Mo Speech desktop screenshot"
-          opacity={0.5}
-          width={1200} // or the actual width of your image
-          height={700} // or the actual height of your image
-          className="w-full max-w-5xl mx-auto rounded-xl shadow-lg my-8"
-          priority // (optional) for above-the-fold images
-        />
         {/* Free Section */}
         <div className="bg-brand-card flex flex-col gap-9 items-center justify-start p-card-x rounded-2xl relative w-full md:max-w-[361px] mx-auto">
           <div className="absolute inset-0 border-line-width border-brand-line rounded-2xl pointer-events-none" />

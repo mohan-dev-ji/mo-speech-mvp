@@ -115,7 +115,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 z-50 w-full border-b border-brand-line/80 shadow-lg transition-all duration-[1000ms] ease-out ${
+    <nav className={`fixed top-0 z-50 w-full border-b-line-width border-brand-line/80 shadow-lg transition-all duration-[1000ms] ease-out ${
       menuOpen 
         ? 'bg-transparent' 
         : 'bg-brand-background/80 backdrop-blur-md'

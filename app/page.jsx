@@ -16,7 +16,7 @@ export default function LandingPage() {
   return (
     <div className="flex min-h-screen flex-col w-full bg-brand-background">
       <Navbar />
-      <main className="flex-1 pt-24">
+      <main className="flex-1 pt-24 max-w-1080">
         <HeroSection />
         <WhatIsMoSpeechSection />
         <ChallengesSection />

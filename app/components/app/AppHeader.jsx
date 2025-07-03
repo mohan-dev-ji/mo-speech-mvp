@@ -34,7 +34,7 @@ export default function AppHeader() {
           <div onClick={handleLogoClick} className="hover:opacity-80 transition-opacity cursor-pointer">
             <Logo className="h-8 w-auto" />
           </div>
-          <Button variant="default" onClick={handleSignOut}>
+          <Button variant="secondary" size="nav" onClick={handleSignOut}>
             Sign Out
           </Button>
         </div>
