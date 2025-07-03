@@ -16,7 +16,7 @@ export default function GuidePage() {
   return (
     <div className="min-h-screen bg-brand-background flex flex-col">
       <Navbar />
-      <main className="flex-1 flex flex-col items-center w-full">
+      <main className="flex-1 flex flex-col items-center w-full pt-24">
         <HeadingSection />
         <SingleWordSection />
         <AdviceSection />

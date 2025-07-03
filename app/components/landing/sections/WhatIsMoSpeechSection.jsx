@@ -6,7 +6,7 @@ import Card1 from "../cards/Card1";
 
 export default function WhatIsMoSpeechSection() {
   return (
-    <section id="about" className="relative w-full bg-brand-background px-4 md:px-8 scroll-mt-24">
+    <section id="about" className="relative w-full bg-brand-background px-4 md:px-8">
       <div className="w-full h-px bg-brand-line" />
       <div className="absolute border border-[rgba(224,224,224,0.01)] border-solid inset-0 pointer-events-none rounded-none" />
       <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">

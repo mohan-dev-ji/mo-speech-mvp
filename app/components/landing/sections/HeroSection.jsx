@@ -29,7 +29,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="w-full flex flex-col items-center px-4 md:px-8 overflow-hidden">
+    <section className="w-full flex flex-col items-center px-4 md:px-8">
       <div className="w-full h-px bg-brand-line" />
       <div className="flex flex-col items-center gap-12 w-full max-w-[1080px] py-16">
         {/* Headline */}

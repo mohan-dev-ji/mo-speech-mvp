@@ -37,11 +37,11 @@ export default function FeatureTextSection() {
   }, [shouldPlay]);
 
   return (
-    <section className="relative w-full flex flex-col items-center px-4 md:px-8 overflow-hidden">
+    <section className="relative w-full flex flex-col items-center px-4 md:px-8">
       <div className="w-full h-px bg-brand-line" />
       {/* Animated background ellipses */}
-      <div className="absolute right-0 top-[-100px] w-[300px] md:w-[500px] h-[300px] md:h-[500px] z-0 animate-ellipse-x blur-3xl opacity-40 pointer-events-none overflow-hidden" style={{background: "radial-gradient(circle at 50% 50%, #0074cd33 100%, transparent 80%)"}} />
-      <div className="absolute right-[5%] md:right-[10%] bottom-[-120px] w-[250px] md:w-[400px] h-[250px] md:h-[400px] z-0 animate-ellipse-y blur-3xl opacity-30 pointer-events-none overflow-hidden" style={{background: "radial-gradient(circle at 50% 50%, #0074cd33 100%, transparent 80%)"}} />
+      <div className="absolute right-0 top-[-100px] w-[300px] md:w-[500px] h-[300px] md:h-[500px] z-0 animate-ellipse-x blur-3xl opacity-40 pointer-events-none overflow-x-hidden" style={{background: "radial-gradient(circle at 50% 50%, #0074cd33 100%, transparent 80%)"}} />
+      <div className="absolute right-[5%] md:right-[10%] bottom-[-120px] w-[250px] md:w-[400px] h-[250px] md:h-[400px] z-0 animate-ellipse-y blur-3xl opacity-30 pointer-events-none overflow-x-hidden" style={{background: "radial-gradient(circle at 50% 50%, #0074cd33 100%, transparent 80%)"}} />
       <div className="relative z-10 flex flex-col md:flex-row-reverse items-center justify-center w-full max-w-5xl py-16 gap-x-8">
         {/* Lottie placeholder */}
         <div

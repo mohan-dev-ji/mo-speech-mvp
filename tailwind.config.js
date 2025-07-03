@@ -26,18 +26,17 @@ module.exports = {
       },
       colors: {
         brand: {
-          text: "#e0e0e0",
-          "text-secondary": "rgba(224, 224, 224, 0.7)",
-          line: "rgba(224, 224, 224, 0.1)",
-          primary: "#0074cd",
-          secondary: "#00b5cd",
-          tertiary: "#eba91c",
-          background: "#0a0b0f",
-          "bg-alt-secondary": "rgba(0, 181, 205, 0.04)",
-          "icon-border": "rgba(0, 116, 205, 0.2)",
-          "icon-bg-blue": "rgba(0, 116, 205, 0.16)",
-          "icon-bg-green": "rgba(0, 181, 205, 0.16)",
-          "icon-bg-yellow": "rgba(235, 169, 28, 0.2)",
+          text: "#e0e0e0", // Brand-colors/Text
+          "text-secondary": "#e0e0e0b2", // Brand-colors/Text-secondary
+          line: "#353b56", // Brand-colors/Line
+          primary: "#0074cd", // Brand-colors/Primary
+          secondary: "#00b5cd", // Brand-colors/Secondary
+          tertiary: "#eba91c", // Brand-colors/Tertiary
+          background: "#0a0b0f", // Brand-colors/BG
+          card: "#17191a", // Brand-colors/Card
+          "icon-bg-blue": "#0074cd29", // Brand-colors/Icon-BG-blue
+          "icon-bg-green": "#00b5cd3d", // Brand-colors/Icon-BG-green
+          "icon-bg-yellow": "#eba91c33", // Brand-colors/Icon-BG-yellow
         },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
@@ -69,7 +68,7 @@ module.exports = {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))'
         },
-        border: 'hsl(var(--border))',
+        border: '#353b56', // Brand-colors/Line
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         chart: {
@@ -84,25 +83,29 @@ module.exports = {
         sans: ["Manrope", "sans-serif"],
       },
       fontSize: {
-        h1: ['64px', { lineHeight: '1.21', fontWeight: '800' }],
+        h1: ['64px', { lineHeight: '70px', fontWeight: '600' }], // Manrope-styles/h1
         'h1-mobile': ['48px', { lineHeight: '1.21', fontWeight: '800' }],
-        h2: ['48px', { lineHeight: '50px', fontWeight: '800' }],
+        h2: ['48px', { lineHeight: '50px', fontWeight: '800' }], // Manrope-styles/h2
         'h2-mobile': ['40px', { lineHeight: '1.21', fontWeight: '800' }],
-        h3: ['36px', { lineHeight: '49px', fontWeight: '700' }],
+        h3: ['36px', { lineHeight: '49px', fontWeight: '700' }], // Manrope-styles/h3
         'h3-mobile': ['32px', { lineHeight: '1.21', fontWeight: '800' }],
-        h4: ['24px', { lineHeight: '28px', fontWeight: '700' }],
+        h4: ['24px', { lineHeight: '28px', fontWeight: '700' }], // Manrope-styles/h4
         lead: ['20px', { lineHeight: '28px', fontWeight: '500' }],
         large: ['18px', { lineHeight: '28px', fontWeight: '500' }],
-        p: ['16px', { lineHeight: '28px', fontWeight: '400' }],
+        p: ['16px', { lineHeight: '28px', fontWeight: '400' }], // Manrope-styles/p
+        'p-bold': ['16px', { lineHeight: '28px', fontWeight: '700' }], // Manrope-styles/p-bold
         'p-ui': ['16px', { lineHeight: '24px', fontWeight: '400' }],
       },
       spacing: {
-        'section-y': '64px',
-        'card-x': '40px',
-        'card-y': '60px',
-        'between-cards': '48px',
-        'between-heading': '8px',
-        'between-icon': '36px',
+        'section-y': '64px', // Roundness and Spacing/Section-y-padding
+        'card-x': '36px', // Roundness and Spacing/Card-x-padding
+        'card-y': '36px', // Roundness and Spacing/Card-y-padding
+        'between-cards': '48px', // Roundness and Spacing/Space-between-cards
+        'between-heading': '8px', // Roundness and Spacing/Space-between-heading
+        'between-icon': '36px', // Roundness and Spacing/Space-between-icon
+        'container-width': '1080px', // Roundness and Spacing/Container-width
+        'divider-width': '2px', // Stroke/Divider Width
+        'line-width': '2px', // Roundness and Spacing/Line-width
       },
     }
   },

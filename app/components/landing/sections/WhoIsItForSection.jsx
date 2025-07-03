@@ -6,7 +6,7 @@ import UserCheckIcon from "../svgs/UserCheckIcon";
 
 export default function WhoIsItForSection() {
   return (
-    <section className="relative w-full flex flex-col items-center px-4 md:px-8 overflow-hidden bg-brand-bg-alt-secondary">
+    <section className="relative w-full flex flex-col items-center px-4 md:px-8 bg-brand-bg-alt-secondary">
       <div className="w-full h-px bg-brand-line" />
       <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
         {/* Heading */}

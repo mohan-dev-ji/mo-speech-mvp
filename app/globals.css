@@ -6,10 +6,17 @@
     filter: brightness(0) saturate(100%) invert(28%) sepia(100%) saturate(1000%) hue-rotate(330deg) brightness(85%) contrast(101%);
   }
 
-/* Prevent horizontal overflow */
-html, body {
+/* Prevent horizontal overflow but allow sticky positioning */
+html {
   overflow-x: hidden;
   max-width: 100vw;
+}
+
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  /* Ensure body allows sticky positioning */
+  position: relative;
 }
 
 /* Ensure all sections respect viewport width */

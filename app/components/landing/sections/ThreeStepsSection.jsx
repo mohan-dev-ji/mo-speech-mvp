@@ -6,7 +6,7 @@ import FullscreenIcon from "../svgs/FullscreenIcon";
 
 export default function ThreeStepsSection() {
   return (
-    <section className="relative w-full flex flex-col items-center px-4 md:px-8 overflow-hidden">
+    <section className="relative w-full flex flex-col items-center px-4 md:px-8">
       <div className="w-full h-px bg-brand-line" />
       <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
         {/* Heading */}
