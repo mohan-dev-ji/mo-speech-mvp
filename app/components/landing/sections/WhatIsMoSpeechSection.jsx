@@ -14,7 +14,7 @@ export default function WhatIsMoSpeechSection() {
             What is <span className="bg-gradient-to-r from-brand-text from-[9.2%] to-brand-primary to-[70.3%] bg-clip-text text-transparent">Mo Speech?</span>
           </h2>
           <p className="text-p text-brand-text-secondary w-full md:w-auto">
-            Mo Speech is a free online resource that bridge's the gap between everyday life and AAC training.
+            Mo Speech is a free online resource that bridge&apos;s the gap between everyday life and AAC training.
           </p>
         </div>
         {/* Cards */}
