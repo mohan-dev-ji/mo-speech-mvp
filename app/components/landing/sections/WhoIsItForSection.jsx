@@ -1,36 +1,43 @@
 import React from "react";
-import Card4 from "../cards/Card4";
+import Card1 from "../cards/Card1";
+import HomeIcon from "../svgs/HomeIcon";
 import UsersIcon from "../svgs/UsersIcon";
 import EducatorsIcon from "../svgs/EducatorsIcon";
-import UserCheckIcon from "../svgs/UserCheckIcon";
 
 export default function WhoIsItForSection() {
   return (
-    <section className="relative w-full flex flex-col items-center px-4 md:px-8 bg-brand-bg-alt-secondary">
-      <div className="w-full h-px bg-brand-line" />
-      <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
+    <section className="relative w-full bg-brand-background px-section-x-mobile md:px-section-x py-section-y-mobile md:py-section-y border-b-line-width border-brand-line">
+       <div className="flex flex-col items-center w-full max-w-[container-width] mx-auto">
         {/* Heading */}
-        <div className="flex flex-col gap-2 items-center text-center w-full">
-          <h2 className="text-h2-mobile md:text-h2 text-brand-text font-extrabold tracking-tight">Who is it for?</h2>
-          <p className="text-large text-brand-text-secondary max-w-2xl">Mo Speech is designed for anyone involved in AAC communication.</p>
+        <div className="flex flex-col gap-between-heading items-start md:items-center text-left md:text-center w-full">
+          <h2 className="text-h2-mobile md:text-h2 bg-gradient-to-r from-[#e9e9e9] to-[#0068b8] bg-clip-text text-transparent tracking-[-0.216px] leading-[49px]" style={{fontFamily: 'Manrope, sans-serif'}}>Who is it for?</h2>
         </div>
         {/* Cards */}
-        <div className="flex flex-col md:flex-row gap-8 w-full max-w-[1080px] mx-auto items-center justify-center mt-12">
-          <Card4
-            icon={<UsersIcon className="w-[50px] h-[50px]" />}
-            title="Parents & Families"
-            description="Support your child's communication development at home with easy-to-use tools."
+        <div className="flex flex-col md:flex-row gap-between-cards w-full max-w-[1044px] mx-auto items-stretch justify-center mt-12">
+          <div className="w-full md:flex-1">
+          <Card1
+            icon={<div className="bg-[rgba(0,116,205,0.16)] rounded-full p-[10px] w-[55px] h-[55px] flex items-center justify-center"><HomeIcon className="w-6 h-6" /></div>}
+            title="Parents & Caregivers"
+            description="Bringing up or caring for someone with difficulties communicating"
+            hoverShadow="hover:shadow-[0_8px_32px_0_rgba(0,116,205,0.16)]"
           />
-          <Card4
-            icon={<EducatorsIcon className="w-[50px] h-[50px]" />}
-            title="Educators & Therapists"
-            description="Enhance your AAC sessions with quick access to symbols and consistent modelling."
+          </div>
+          <div className="w-full md:flex-1">
+          <Card1
+            icon={<div className="bg-[rgba(0,181,205,0.24)] rounded-full p-[10px] w-[55px] h-[55px] flex items-center justify-center"><UsersIcon className="w-6 h-6" /></div>}
+            title="Therapists"
+            description="Working with AAC users in clinical settings"
+            hoverShadow="hover:shadow-[0_8px_32px_0_rgba(0,181,205,0.24)]"
           />
-          <Card4
-            icon={<UserCheckIcon className="w-[50px] h-[50px]" />}
-            title="AAC Users"
-            description="Practice and improve your communication skills with accessible, user-friendly tools."
+          </div>
+          <div className="w-full md:flex-1">
+          <Card1
+            icon={<div className="bg-[rgba(235,169,28,0.2)] rounded-full p-[10px] w-[55px] h-[55px] flex items-center justify-center"><EducatorsIcon className="w-6 h-6" /></div>}
+            title="Educators"
+            description="Teachers and assistants in schools environments"
+            hoverShadow="hover:shadow-[0_8px_32px_0_rgba(235,169,28,0.20)]"
           />
+          </div>
         </div>
       </div>
     </section>

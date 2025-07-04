@@ -25,43 +25,35 @@ export default function FinalCtaSection() {
   };
 
   return (
-    <section className="relative w-full flex flex-col items-center px-4 md:px-8">
-      <div className="w-full h-px bg-brand-line" />
-      <div className="flex flex-col items-center w-full max-w-[1080px] mx-auto py-16">
-        <div className="w-full max-w-[1080px] bg-brand-bg-alt-secondary border-2 border-brand-line rounded-2xl py-16 px-4 relative">
-          <div className="flex flex-col items-center text-center gap-8">
-            <div className="flex flex-col gap-4 items-center">
-              <h2 className="text-h2-mobile md:text-h2 text-brand-text font-extrabold tracking-tight">
-                Ready to Get Started?
+    <section className="relative w-full bg-brand-background px-section-x-mobile md:px-section-x py-section-y-mobile md:py-section-y border-b-line-width border-brand-line">
+      <div className="flex flex-col items-center w-full max-w-[container-width] mx-auto"> 
+   
+            <div className="flex flex-col gap-4 items-center border-line-width border-brand-line rounded-2xl p-card-x py-card-y">
+              <h2 className="text-h2-mobile md:text-h2 text-brand-text gap-between-heading">
+              Ready to Try Mo Speech?
               </h2>
-              <p className="text-large text-brand-text-secondary max-w-2xl">
-                Join thousands of families and professionals using Mo Speech to improve AAC communication.
+              <p className="text-large text-brand-text-secondary max-w-2xl gap-between-icon">
+              Use the app in Chrome on any device
               </p>
-            </div>
-            
+    
             {isSignedIn ? (
               <Button 
-                size="xl" 
-                className="bg-brand-primary text-white hover:bg-brand-primary/90"
+                variant="secondary"
+                size="nav"
                 onClick={handleAction}
               >
                 Use Mo Speech Now
               </Button>
             ) : (
               <Button 
-                size="xl" 
-                className="bg-brand-primary text-white hover:bg-brand-primary/90"
+                variant="secondary"
+                size="nav"
                 onClick={handleSignIn}
               >
-                Get Started Free
+                Start free account
               </Button>
             )}
-            
-            <p className="text-p text-brand-text-secondary">
-              No credit card required • Completely free to use
-            </p>
-          </div>
-        </div>
+            </div>
       </div>
     </section>
   );
