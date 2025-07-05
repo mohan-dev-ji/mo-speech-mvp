@@ -66,17 +66,8 @@ export default function ContactFormSection() {
   };
 
   return (
-    <section className="w-full flex flex-col items-center px-4 md:px-8 py-[60px] border-b border-brand-line">
-      <div className="w-full max-w-[530px] flex flex-col items-center gap-12">
-        <div className="flex flex-col items-center gap-2 text-center w-full">
-          <h2 className="text-[48px] font-extrabold text-brand-text tracking-[-0.36px] leading-[50px]">
-            We Value Your Feedback
-          </h2>
-          <p className="text-[18px] font-semibold text-brand-text-secondary leading-[28px] max-w-[596px]">
-            Help us improve Mo Speech by sharing your experiences, suggestions, or by reporting any issues you&apos;ve encountered.
-          </p>
-        </div>
-        
+    <section className="w-full flex flex-col items-center px-4 md:px-8 py-section-y border-b border-brand-line">
+      <div className="w-full max-w-[1080px] flex flex-col items-center gap-12">
         {submitStatus === 'success' && (
           <div className="w-full p-4 bg-green-100 border border-green-400 text-green-700 rounded-md">
             Thank you for your message! We&apos;ll get back to you soon.
@@ -131,8 +122,8 @@ export default function ContactFormSection() {
           
           <Button 
             type="submit" 
-            size="lg" 
-            variant="secondary-alt" 
+            size="nav" 
+            variant="secondary" 
             className="w-full max-w-[530px] mt-4"
             disabled={isSubmitting}
           >

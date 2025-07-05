@@ -38,7 +38,7 @@ export default function FeatureTextSection() {
   }, [shouldPlay]);
 
   return (
-    <section className="relative w-full flex flex-col items-center px-section-x-mobile md:px-section-x border-b-line-width border-brand-line">
+    <section className="relative w-full flex flex-col items-center px-section-x-mobile md:px-section-x">
 
       {/* Animated background ellipses */}
       <div className="absolute right-0 top-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] z-0 animate-ellipse-x blur-3xl opacity-40 pointer-events-none overflow-x-hidden" style={{background: "radial-gradient(circle at 50% 50%, #0074cd33 100%, transparent 80%)"}} />
@@ -61,7 +61,7 @@ export default function FeatureTextSection() {
         <div className="w-full md:flex-1">
         <Card1
             icon={
-              <div className="bg-brand-icon-bg-green flex items-center justify-center p-[10px] rounded-full size-[55px] mb-4">
+              <div className="bg-brand-icon-bg-green flex items-center justify-center p-[10px] rounded-full size-[55px]">
                 <KeyboardIcon className="w-6 h-6" />
               </div>
             }

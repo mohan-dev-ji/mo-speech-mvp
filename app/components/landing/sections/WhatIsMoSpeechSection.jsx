@@ -6,7 +6,7 @@ import UtensilsIcon from "../svgs/UtensilsIcon";
 
 export default function WhatIsMoSpeechSection() {
   return (
-    <section id="about" className="relative w-full bg-brand-background px-section-x-mobile md:px-section-x py-section-y-mobile md:py-section-y border-b-line-width border-brand-line">
+    <section id="about" className="relative w-full bg-brand-background px-section-x-mobile md:px-section-x py-section-y-mobile md:py-section-y">
       <div className="flex flex-col items-center w-full max-w-[container-width] mx-auto">
         {/* Heading */}
         <div className="flex flex-col gap-between-heading items-start md:items-center text-left md:text-center w-full">

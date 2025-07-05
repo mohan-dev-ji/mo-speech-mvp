@@ -5,7 +5,7 @@ import ShieldCheckIcon from "../svgs/ShieldCheckIcon";
 
 export default function ChallengesSection() {
   return (
-    <section className="w-full flex flex-col items-center px-4 md:px-8 py-section-y border-b-line-width border-brand-line">
+    <section className="w-full flex flex-col items-center px-4 md:px-8 py-section-y">
       {/* Bottom border for section */}
       <div className="w-full max-w-[1044px] mx-auto flex flex-col items-start">
         {/* Heading and subheading */}

@@ -6,11 +6,11 @@ import EducatorsIcon from "../svgs/EducatorsIcon";
 
 export default function WhoIsItForSection() {
   return (
-    <section className="relative w-full bg-brand-background px-section-x-mobile md:px-section-x py-section-y-mobile md:py-section-y border-b-line-width border-brand-line">
+    <section className="relative w-full bg-brand-background px-section-x-mobile md:px-section-x py-section-y-mobile md:py-section-y">
        <div className="flex flex-col items-center w-full max-w-[container-width] mx-auto">
         {/* Heading */}
         <div className="flex flex-col gap-between-heading items-start md:items-center text-left md:text-center w-full">
-          <h2 className="text-h2-mobile md:text-h2 bg-gradient-to-r from-[#e9e9e9] to-[#0068b8] bg-clip-text text-transparent tracking-[-0.216px] leading-[49px]" style={{fontFamily: 'Manrope, sans-serif'}}>Who is it for?</h2>
+          <h2 className="text-h2-mobile md:text-h2 bg-gradient-to-r from-[#e9e9e9] to-[#0068b8] bg-clip-text text-transparent">Who is it for?</h2>
         </div>
         {/* Cards */}
         <div className="flex flex-col md:flex-row gap-between-cards w-full max-w-[1044px] mx-auto items-stretch justify-center mt-12">

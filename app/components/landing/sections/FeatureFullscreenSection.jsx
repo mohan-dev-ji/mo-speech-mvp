@@ -62,7 +62,7 @@ export default function FeatureFullscreenSection() {
         <div className="w-full md:flex-1">
         <Card1
             icon={
-              <div className="bg-brand-icon-bg-blue flex items-center justify-center p-[10px] rounded-full size-[55px] mb-4">
+              <div className="bg-brand-icon-bg-blue flex items-center justify-center p-[10px] rounded-full size-[55px]">
                 <FullscreenIcon className="w-6 h-6" />
               </div>
             }

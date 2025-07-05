@@ -38,7 +38,7 @@ export default function FeatureVoiceSection() {
   }, [shouldPlay]);
 
   return (
-    <section id="features" className="relative w-full flex flex-col items-center px-section-x-mobile md:px-section-x border-b-line-width border-brand-line">
+    <section id="features" className="relative w-full flex flex-col items-center px-section-x-mobile md:px-section-x">
       {/* Animated background ellipses */}
       <div className="absolute left-0 top-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] z-0 animate-ellipse-x blur-3xl opacity-40 pointer-events-none overflow-x-hidden" style={{background: "radial-gradient(circle at 50% 50%, #eba91c33 100%, transparent 80%)"}} />
       <div className="absolute left-[5%] md:left-[10%] bottom-0 w-[250px] md:w-[400px] h-[250px] md:h-[400px] z-0 animate-ellipse-y blur-3xl opacity-30 pointer-events-none overflow-x-hidden" style={{background: "radial-gradient(circle at 50% 50%, #eba91c33 100%, transparent 80%)"}} />
@@ -61,12 +61,12 @@ export default function FeatureVoiceSection() {
         <div className="w-full md:flex-1">
         <Card1
             icon={
-              <div className="bg-brand-icon-bg-yellow flex items-center justify-center p-[10px] rounded-full size-[55px] mb-4">
+              <div className="bg-brand-icon-bg-yellow flex items-center justify-center p-[10px] rounded-full size-[55px]">
                 <MicrophoneIcon className="w-6 h-6" />
               </div>
             }
             title="Voice Recognition"
-            description="Find PECs instantly by speaking into your device."
+            description="Find symbols instantly by speaking naturallyinto your device."
             hoverShadow="hover:shadow-[0_8px_32px_0_rgba(253,169,28,0.25)]"
           />
           </div>

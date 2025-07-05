@@ -33,7 +33,7 @@ module.exports = {
           secondary: "#00b5cd", // Brand-colors/Secondary
           tertiary: "#eba91c", // Brand-colors/Tertiary
           background: "#0a0b0f", // Brand-colors/BG
-          card: "#17191a", // Brand-colors/Card
+          card: "#14161E", // Brand-colors/Card
           "icon-bg-blue": "#0074cd29", // Brand-colors/Icon-BG-blue
           "icon-bg-green": "#00b5cd3d", // Brand-colors/Icon-BG-green
           "icon-bg-yellow": "#eba91c33", // Brand-colors/Icon-BG-yellow
@@ -109,6 +109,7 @@ module.exports = {
         'container-width': '1080px', // Roundness and Spacing/Container-width
         'divider-width': '2px', // Stroke/Divider Width
         'line-width': '2px', // Roundness and Spacing/Line-width
+        'roundness': '16px', // Roundness and Spacing/Roundness
       },
       borderWidth: {
         'line-width': 'var(--line-width)',

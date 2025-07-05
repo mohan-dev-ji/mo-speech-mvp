@@ -29,7 +29,7 @@ export default function FinalCtaSection() {
       <div className="flex flex-col items-center w-full max-w-[container-width] mx-auto"> 
    
             <div className="flex flex-col gap-4 items-center border-line-width border-brand-line rounded-2xl p-card-x py-card-y">
-              <h2 className="text-h2-mobile md:text-h2 text-brand-text gap-between-heading">
+              <h2 className="text-h3-mobile md:text-h3 text-brand-text gap-between-heading">
               Ready to Try Mo Speech?
               </h2>
               <p className="text-large text-brand-text-secondary max-w-2xl gap-between-icon">
