@@ -10,7 +10,7 @@ export default function GuideHeadingSection() {
             <span className="bg-gradient-to-r from-[#e9e9e9] to-[#0068b8] bg-clip-text text-transparent">We Value Your Feedback</span>
           </h1>
           <p className="text-large leading-7 text-brand-text-secondary max-w-2xl mt-2">
-          Help us improve Mo Speech by sharing your experiences, suggestions, or by reporting any issues you've encountered.
+          Help us improve Mo Speech by sharing your experiences, suggestions, or by reporting any issues you&apos;ve encountered.
           </p>
         </div>
       </div>

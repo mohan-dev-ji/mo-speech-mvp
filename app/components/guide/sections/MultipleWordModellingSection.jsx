@@ -43,7 +43,7 @@ export default function MultipleWordModellingSection() {
         <div className="flex flex-col gap-between-heading items-start w-full">
           <h2 className="text-h3 bg-gradient-to-r from-[#e9e9e9] to-[#0068b8] bg-clip-text text-transparent">Multiple Word Modelling</h2>
           <p className="text-p text-brand-text-secondary max-w-md">
-            Pick more than one word in a sentence that you want to teach the meaning of. <span className="text-brand-text-secondary">You don't need to model every word. Focus on the important ones:</span>
+            Pick more than one word in a sentence that you want to teach the meaning of. <span className="text-brand-text-secondary">You don&apos;t need to model every word. Focus on the important ones:</span>
           </p>
           <div className="mt-4">
             <Button variant="secondary" size="nav">Sign In</Button>
